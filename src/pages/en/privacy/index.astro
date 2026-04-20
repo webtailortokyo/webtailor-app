@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.privacy')}>
+  <Header />
+
+  <main class="flex-grow py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-gray prose-headings:text-gray-900 prose-headings:font-black prose-p:text-gray-500 prose-p:leading-relaxed">
+      <h1 class="text-4xl md:text-5xl mb-12">{t('nav.privacy')}</h1>
+      
+      <div class="space-y-8">
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          WEB Tailor App Studio ("Company") establishes this Privacy Policy regarding the handling of user information in the provided smartphone applications and related services ("the Service").
+        </p>
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">1. Information We Collect</h2>
+          <p>We may collect the following information in providing the Service:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+            <li>Device information (OS, model, language settings, etc.)</li>
+            <li>App usage statistics (operation history, crash reports, etc.)</li>
+            <li>Information provided during inquiries (email address, content, etc.)</li>
+          </ul>
+          <p class="mt-4 font-medium italic">*The Service is designed not to collect personally identifiable information in principle.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">2. Purpose of Use</h2>
+          <p>The collected information will be used for the following purposes:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+            <li>Provision and improvement of the Service</li>
+            <li>Investigation and fixing of bugs</li>
+            <li>Analysis of usage status</li>
+            <li>Responding to inquiries</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">3. Third-Party Provision</h2>
+          <p>We will not provide the collected information to third parties except in the following cases:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+            <li>With the individual's consent</li>
+            <li>Based on laws and regulations</li>
+            <li>When necessary to prevent fraud or ensure safety</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">4. Use of External Services</h2>
+          <p>The Service may use external services (e.g., analysis tools) for improved convenience and analysis. These services may collect anonymous information.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">5. Data Management</h2>
+          <p>We perform appropriate management into prevent unauthorized access, loss, or leakage of the collected information.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">6. User Rights</h2>
+          <p>Users can request disclosure, correction, or deletion of the information they have provided. In such cases, please contact us through the inquiry window.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">7. Changes to the Policy</h2>
+          <p>This policy may be changed as necessary. Changes will take effect once posted on this site.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">8. Contact</h2>
+          <p>For inquiries regarding this policy, please contact us through the inquiry form on this site.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

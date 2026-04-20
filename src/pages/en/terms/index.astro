@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.terms')}>
+  <Header />
+
+  <main class="flex-grow py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-gray prose-headings:text-gray-900 prose-headings:font-black prose-p:text-gray-500 prose-p:leading-relaxed">
+      <h1 class="text-4xl md:text-5xl mb-12">{t('nav.terms')}</h1>
+      
+      <div class="space-y-8">
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          These Terms of Use ("Terms") define the conditions for using the Service provided by WEB Tailor App Studio ("Company").
+        </p>
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">1. Application</h2>
+          <p>These Terms apply to all relations regarding the use of the Service.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">2. Conditions of Use</h2>
+          <p>Users shall use the Service after agreeing to these Terms.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">3. Prohibited Acts</h2>
+          <p>Users shall not perform the following acts:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+            <li>Acts that violate laws or public order and morals</li>
+            <li>Acts that interfere with the operation of the Service</li>
+            <li>Unauthorized access or use</li>
+            <li>Other acts judged inappropriate by the Company</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">4. Changes to Service Content</h2>
+          <p>The Company may change the content of the Service or stop providing it without prior notice to users.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">5. Disclaimer</h2>
+          <p>The Company shall not be liable for the following matters regarding the Service:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+            <li>Any damages (including direct/indirect damage, special damage, lost profits, etc.) arising from the use or inability to use the Service</li>
+            <li>Damages resulting from data loss, damage, incorrect saving, terminal failure or change, etc.</li>
+            <li>Accuracy, completeness, or usefulness of information entered/recorded by users (e.g., amounts, memos)</li>
+            <li>Damages arising from errors in calculation results or displayed content of the Service</li>
+            <li>Bugs, stopping, interruption, or specification changes of the Service</li>
+            <li>Damages resulting from external services (analysis tools, advertisement distribution, etc.)</li>
+          </ul>
+          <p class="mt-4">The Service is provided "as is", and the Company makes no warranties, express or implied, including fitness for a particular purpose, usefulness, completeness, or continuity.</p>
+          <p class="mt-2 text-sm italic">Users use the Service at their own risk and should back up important information as necessary.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">6. Intellectual Property Rights</h2>
+          <p>Copyrights and intellectual property rights regarding the Service belong to the Company or legitimate third parties.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">7. Changes to the Terms</h2>
+          <p>The Company may change these Terms as necessary. Changed Terms will take effect once posted on this site.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl border-b pb-4 font-bold">8. Governing Law and Jurisdiction</h2>
+          <p>These Terms are governed by Japanese law. In case of dispute regarding the Service, the court having jurisdiction over the location of the Company shall be the exclusive agreement jurisdictional court.</p>
+          <p class="mt-8 text-right text-gray-400">(Established: April 2026)</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

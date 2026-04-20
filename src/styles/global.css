@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "BIZ UDPGothic", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-subtitle: "Klee One", cursive;
+}
+
+@layer utilities {
+  .font-subtitle {
+    font-family: var(--font-subtitle);
+  }
+}

@@ -1,0 +1,40 @@
+---
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-24 px-4 bg-white relative overflow-hidden">
+  <!-- Subtle decorative element -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-gray-200"></div>
+  
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-gray-50/50 border border-gray-100 rounded-[3rem] p-8 md:p-16 text-center relative shadow-[0_20px_50px_rgba(53,133,199,0.12)]">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 font-sans text-[#3585c7] leading-tight">
+        {t('message.title')}
+      </h2>
+      
+      <div class="space-y-8 text-gray-600 text-lg md:text-xl leading-[1.8] tracking-[0.05em] max-w-2xl mx-auto text-left">
+        <p class="whitespace-pre-wrap">
+          {t('message.body.1')}
+        </p>
+        
+        <p class="whitespace-pre-wrap">
+          {t('message.body.2')}
+        </p>
+        
+        <p class="whitespace-pre-wrap">
+          {t('message.body.3')}
+        </p>
+      </div>
+
+      <!-- Bottom decorative element -->
+      <div class="mt-16 flex justify-center items-center gap-4">
+        <div class="h-px w-8 bg-gray-200"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#3585c7] opacity-30"></div>
+        <div class="h-px w-8 bg-gray-200"></div>
+      </div>
+    </div>
+  </div>
+</section>

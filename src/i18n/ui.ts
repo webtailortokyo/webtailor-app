@@ -1,0 +1,51 @@
+export const languages = {
+  ja: '日本語',
+  en: 'English',
+};
+
+export const defaultLang = 'ja';
+
+export const ui = {
+  ja: {
+    'nav.home': 'ホーム',
+    'nav.apps': 'アプリ一覧',
+    'nav.privacy': 'プライバシーポリシー',
+    'nav.terms': '利用規約',
+    'nav.contact': 'お問い合わせ',
+    'site.title': 'WEBテーラー App Studio',
+    'site.description': 'WEBテーラーが提供するシンプルで実用的なアプリの紹介サイトです。',
+    'hero.title': 'WEBテーラー\nApp Studio',
+    'hero.description': 'ちょっと面倒は、アプリに任せよう',
+    'apps.title': '公開中のアプリ',
+    'contact.name': 'お名前',
+    'contact.email': 'メールアドレス',
+    'contact.message': 'お問い合わせ内容',
+    'contact.submit': '送信する',
+    'footer.rights': 'All rights reserved.',
+    'message.title': '精神論はいらない。仕組みで解決する。',
+    'message.body.1': '「苦手だけど、やらなきゃいけない」\nそんな日々のプレッシャーに、心当たりはありませんか？',
+    'message.body.2': '私自身、主婦であり個人事業主ですが、家事や育児の「面倒なこと」に人一倍ハードルを感じてきました。自分や子供が持つADHDという特性に向き合う中で辿り着いた答えは、努力でカバーするのではなく「アプリに任せる」という選択です。',
+    'message.body.3': '大切なのは、教育や習慣化の前に、まず「無理なくできる」環境を作ること。\n面倒を極限まで削ぎ落とした「おかねメモ」をはじめ、「生活の凸凹をなだらかにするアプリ」を一つひとつ形にしていきます。',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.apps': 'Apps',
+    'nav.privacy': 'Privacy Policy',
+    'nav.terms': 'Terms of Service',
+    'nav.contact': 'Contact',
+    'site.title': 'WEB TAILOR App Studio',
+    'site.description': 'Introduction site for simple and practical apps provided by WEB TAILOR.',
+    'hero.title': 'WEB TAILOR\nApp Studio',
+    'hero.description': 'Hand over your tedious daily tasks to our apps.',
+    'apps.title': 'Available Apps',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.submit': 'Send',
+    'footer.rights': 'All rights reserved.',
+    'message.title': 'No more willpower. Solve it with a system.',
+    'message.body.1': '"I\'m not good at it, but I have to do it."\nDoes that constant pressure sound familiar?',
+    'message.body.2': "As a homemaker and solo entrepreneur, I've struggled with \"tedious chores\" and childcare more than most. Managing both my own and my child's ADHD, I finally realized the answer wasn't more effort—it was choosing to \"let the apps handle it.\"",
+    'message.body.3': "Before focusing on education or habits, it's vital to create an environment where life just \"works\" without the strain.\nStarting with \"MoneyMemo,\" which strips away complexity, I'm building a series of apps designed to smooth out life's rough edges, one by one.",
+  },
+} as const;

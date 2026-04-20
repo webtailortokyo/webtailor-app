@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.privacy')}>
+  <Header />
+
+  <main class="flex-grow py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-gray prose-headings:text-gray-900 prose-headings:font-black prose-p:text-gray-500 prose-p:leading-relaxed">
+      <h1 class="text-4xl md:text-5xl mb-12">{t('nav.privacy')}</h1>
+      
+      {lang === 'ja' ? (
+        <div class="space-y-8">
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            WEBテーラー App Studio（以下「当スタジオ」）は、提供するスマートフォンアプリおよび関連サービス（以下「本サービス」）におけるユーザー情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。
+          </p>
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">1. 収集する情報</h2>
+            <p>当スタジオは、本サービスの提供にあたり、以下の情報を取得する場合があります。</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>端末情報（OS、機種、言語設定など）</li>
+              <li>アプリの利用状況（操作履歴、クラッシュ情報など）</li>
+              <li>お問い合わせ時に提供される情報（メールアドレス、内容など）</li>
+            </ul>
+            <p class="mt-4 font-medium italic">※本サービスは、原則として個人を特定できる情報を収集しない設計を基本としています。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">2. 利用目的</h2>
+            <p>取得した情報は、以下の目的で利用します。</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>本サービスの提供・改善</li>
+              <li>不具合の調査および修正</li>
+              <li>利用状況の分析</li>
+              <li>お問い合わせへの対応</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">3. 第三者提供</h2>
+            <p>当スタジオは、以下の場合を除き、取得した情報を第三者に提供することはありません。</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>本人の同意がある場合</li>
+              <li>法令に基づく場合</li>
+              <li>不正行為の防止や安全確保のために必要な場合</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">4. 外部サービスの利用</h2>
+            <p>本サービスでは、利便性向上や分析のために外部サービス（例：分析ツール等）を利用する場合があります。 これらのサービスにより、匿名の情報が収集されることがあります。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">5. データの管理</h2>
+            <p>当スタジオは、取得した情報について、不正アクセス・紛失・漏えい等を防止するため、適切な管理を行います。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">6. ユーザーの権利</h2>
+            <p>ユーザーは、提供した情報について開示・訂正・削除を求めることができます。 その場合は、お問い合わせ窓口よりご連絡ください。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">7. ポリシーの変更</h2>
+            <p>本ポリシーは、必要に応じて変更されることがあります。変更後の内容は本サイト上に掲載された時点で効力を生じます。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">8. お問い合わせ</h2>
+            <p>本ポリシーに関するお問い合わせは、本サイトのお問い合わせフォームよりご連絡ください。</p>
+          </section>
+        </div>
+      ) : (
+        <div class="space-y-8">
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            WEB Tailor App Studio ("Company") establishes this Privacy Policy regarding the handling of user information in the provided smartphone applications and related services ("the Service").
+          </p>
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">1. Information We Collect</h2>
+            <p>We may collect the following information in providing the Service:</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>Device information (OS, model, language settings, etc.)</li>
+              <li>App usage statistics (operation history, crash reports, etc.)</li>
+              <li>Information provided during inquiries (email address, content, etc.)</li>
+            </ul>
+            <p class="mt-4 font-medium italic">*The Service is designed not to collect personally identifiable information in principle.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">2. Purpose of Use</h2>
+            <p>The collected information will be used for the following purposes:</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>Provision and improvement of the Service</li>
+              <li>Investigation and fixing of bugs</li>
+              <li>Analysis of usage status</li>
+              <li>Responding to inquiries</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">3. Third-Party Provision</h2>
+            <p>We will not provide the collected information to third parties except in the following cases:</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>With the individual's consent</li>
+              <li>Based on laws and regulations</li>
+              <li>When necessary to prevent fraud or ensure safety</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">4. Use of External Services</h2>
+            <p>The Service may use external services (e.g., analysis tools) for improved convenience and analysis. These services may collect anonymous information.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">5. Data Management</h2>
+            <p>We perform appropriate management into prevent unauthorized access, loss, or leakage of the collected information.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">6. User Rights</h2>
+            <p>Users can request disclosure, correction, or deletion of the information they have provided. In such cases, please contact us through the inquiry window.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">7. Changes to the Policy</h2>
+            <p>This policy may be changed as necessary. Changes will take effect once posted on this site.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">8. Contact</h2>
+            <p>For inquiries regarding this policy, please contact us through the inquiry form on this site.</p>
+          </section>
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

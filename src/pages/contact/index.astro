@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.contact')}>
+  <Header />
+
+  <main class="flex-grow py-24 px-4 bg-gray-50/50">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center space-y-4 mb-16">
+        <h1 class="text-5xl font-black text-gray-900 tracking-tight">{t('nav.contact')}</h1>
+        <p class="text-gray-500 font-medium">
+          {lang === 'ja' ? 'ご質問、ご要望などお気軽にお送りください。' : 'Feel free to contact us for any questions or requests.'}
+        </p>
+      </div>
+
+      <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-xl shadow-gray-200/50">
+        <form name="contact" method="POST" data-netlify="true" class="space-y-8">
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <div class="space-y-3">
+            <label for="name" class="text-sm font-bold text-gray-700 uppercase tracking-widest block pl-1">
+              {t('contact.name')}
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder={lang === 'ja' ? '田中 太郎' : 'John Doe'}
+              class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 bg-gray-50 focus:bg-white focus:border-[#3585c7] focus:outline-none transition-all placeholder:text-gray-300 font-medium"
+            />
+          </div>
+
+          <div class="space-y-3">
+            <label for="email" class="text-sm font-bold text-gray-700 uppercase tracking-widest block pl-1">
+              {t('contact.email')}
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="example@webtailor.work"
+              class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 bg-gray-50 focus:bg-white focus:border-[#3585c7] focus:outline-none transition-all placeholder:text-gray-300 font-medium"
+            />
+          </div>
+
+          <div class="space-y-3">
+            <label for="message" class="text-sm font-bold text-gray-700 uppercase tracking-widest block pl-1">
+              {t('contact.message')}
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              rows="5"
+              placeholder={lang === 'ja' ? 'お問い合わせ内容をこちらにご記入ください。' : 'Enter your message here...'}
+              class="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 bg-gray-50 focus:bg-white focus:border-[#3585c7] focus:outline-none transition-all placeholder:text-gray-300 font-medium resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-[#3585c7] to-[#70c6dd] py-5 rounded-2xl text-white font-black text-lg tracking-widest shadow-lg shadow-blue-200 transform transition-all hover:-translate-y-1 hover:brightness-105 active:scale-[0.98]"
+          >
+            {t('contact.submit')}
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

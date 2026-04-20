@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.terms')}>
+  <Header />
+
+  <main class="flex-grow py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-gray prose-headings:text-gray-900 prose-headings:font-black prose-p:text-gray-500 prose-p:leading-relaxed">
+      <h1 class="text-4xl md:text-5xl mb-12">{t('nav.terms')}</h1>
+      
+      {lang === 'ja' ? (
+        <div class="space-y-8">
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            本利用規約（以下「本規約」）は、WEBテーラー App Studio（以下「当スタジオ」）が提供する本サービスの利用条件を定めるものです。
+          </p>
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">1. 適用</h2>
+            <p>本規約は、本サービスの利用に関する一切の関係に適用されます。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">2. 利用条件</h2>
+            <p>ユーザーは、本規約に同意した上で本サービスを利用するものとします。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">3. 禁止事項</h2>
+            <p>ユーザーは、以下の行為を行ってはなりません。</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>法令または公序良俗に違反する行為</li>
+              <li>本サービスの運営を妨害する行為</li>
+              <li>不正アクセスや不正利用</li>
+              <li>その他、当スタジオが不適切と判断する行為</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">4. サービス内容の変更</h2>
+            <p>当スタジオは、ユーザーへの事前の通知なく、本サービスの内容を変更または提供を中止することがあります。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">5. 免責事項</h2>
+            <p>当スタジオは、本サービスに関して、以下の事項について一切の責任を負いません。</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>本サービスの利用または利用不能により生じたいかなる損害（直接的・間接的損害、特別損害、逸失利益等を含みます）</li>
+              <li>データの消失、破損、誤保存、端末の故障や変更等に起因する損害</li>
+              <li>ユーザーが入力・記録した情報（例：金額・メモ等）の正確性・完全性・有用性</li>
+              <li>本サービスの計算結果や表示内容の誤りに起因する損害</li>
+              <li>本サービスの不具合、バグ、停止、中断、仕様変更</li>
+              <li>外部サービス（分析ツール、広告配信等）に起因する損害</li>
+            </ul>
+            <p class="mt-4">本サービスは「現状有姿」で提供されるものであり、当スタジオは明示または黙示を問わず、特定目的への適合性、有用性、完全性、継続性等についていかなる保証も行いません。</p>
+            <p class="mt-2">ユーザーは自己の責任において本サービスを利用するものとし、重要な情報については必要に応じてバックアップを行うものとします。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">6. 知的財産権</h2>
+            <p>本サービスに関する著作権および知的財産権は、当スタジオまたは正当な権利を有する第三者に帰属します。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">7. 規約の変更</h2>
+            <p>当スタジオは、必要に応じて本規約を変更することがあります。変更後の規約は、本サイト上に掲載された時点で効力を生じます。</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">8. 準拠法・管轄</h2>
+            <p>本規約は日本法に準拠し、本サービスに関して紛習が生じた場合は、当スタジオの所在地を管轄する裁判所を専属的合意管轄とします。</p>
+            <p class="mt-8 text-right text-gray-400">（制定日：2026年4月）</p>
+          </section>
+        </div>
+      ) : (
+        <div class="space-y-8">
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            These Terms of Use ("Terms") define the conditions for using the Service provided by WEB Tailor App Studio ("Company").
+          </p>
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">1. Application</h2>
+            <p>These Terms apply to all relations regarding the use of the Service.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">2. Conditions of Use</h2>
+            <p>Users shall use the Service after agreeing to these Terms.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">3. Prohibited Acts</h2>
+            <p>Users shall not perform the following acts:</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>Acts that violate laws or public order and morals</li>
+              <li>Acts that interfere with the operation of the Service</li>
+              <li>Unauthorized access or use</li>
+              <li>Other acts judged inappropriate by the Company</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">4. Changes to Service Content</h2>
+            <p>The Company may change the content of the Service or stop providing it without prior notice to users.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">5. Disclaimer</h2>
+            <p>The Company shall not be liable for the following matters regarding the Service:</p>
+            <ul class="list-disc pl-6 space-y-2 mt-4 text-gray-500">
+              <li>Any damages (including direct/indirect damage, special damage, lost profits, etc.) arising from the use or inability to use the Service</li>
+              <li>Damages resulting from data loss, damage, incorrect saving, terminal failure or change, etc.</li>
+              <li>Accuracy, completeness, or usefulness of information entered/recorded by users (e.g., amounts, memos)</li>
+              <li>Damages arising from errors in calculation results or displayed content of the Service</li>
+              <li>Bugs, stopping, interruption, or specification changes of the Service</li>
+              <li>Damages resulting from external services (analysis tools, advertisement distribution, etc.)</li>
+            </ul>
+            <p class="mt-4">The Service is provided "as is", and the Company makes no warranties, express or implied, including fitness for a particular purpose, usefulness, completeness, or continuity.</p>
+            <p class="mt-2 text-sm italic">Users use the Service at their own risk and should back up important information as necessary.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">6. Intellectual Property Rights</h2>
+            <p>Copyrights and intellectual property rights regarding the Service belong to the Company or legitimate third parties.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">7. Changes to the Terms</h2>
+            <p>The Company may change these Terms as necessary. Changed Terms will take effect once posted on this site.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl border-b pb-4 font-bold">8. Governing Law and Jurisdiction</h2>
+            <p>These Terms are governed by Japanese law. In case of dispute regarding the Service, the court having jurisdiction over the location of the Company shall be the exclusive agreement jurisdictional court.</p>
+            <p class="mt-8 text-right text-gray-400">(Established: April 2026)</p>
+          </section>
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

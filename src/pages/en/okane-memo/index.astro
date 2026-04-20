@@ -1,0 +1,312 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { apps } from '../../../data/apps';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const app = apps.find(a => a.id === 'okane-memo')!;
+
+const appName = app.name[lang as keyof typeof app.name];
+const appDescription = app.description[lang as keyof typeof app.description];
+
+const ACCENT_COLOR = '#ED4CA5';
+const APP_BG_COLOR = '#FFFBF0';
+---
+
+<Layout title={appName} description={appDescription}>
+  <Header />
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <main class="overflow-hidden bg-white text-gray-800">
+    <section class="relative pt-20 pb-32 px-4 shadow-sm overflow-hidden" style={`background: linear-gradient(to b, ${APP_BG_COLOR}80, white);`}>
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 relative z-10">
+        <!-- Text Content -->
+        <div class="flex-1 text-center md:text-left space-y-10 order-2 md:order-1 max-w-lg">
+          <div class="space-y-6">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-tight" style={`color: ${ACCENT_COLOR}`}>
+              {appName}
+            </h1>
+            <p class="text-xl md:text-3xl font-bold tracking-wide text-gray-900">
+              {appDescription}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+            <a href="#" class="group flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold transition-all hover:bg-black hover:scale-105 active:scale-95 shadow-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-1.99.77-3.27.82-1.31.05-2.32-1.32-3.15-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.24-1.99 1.1-3.15-1.04.04-2.31.69-3.05 1.56-.66.77-1.25 1.97-1.1 3.12 1.15.09 2.3-.6 3.05-1.53z"/></svg>
+              App Store
+            </a>
+            <a href="#" class="group flex items-center gap-3 bg-white border-2 text-gray-900 px-8 py-4 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl" style={`border-color: ${ACCENT_COLOR}33;`}>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.31-.644V2.458c0-.244.09-.482.309-.644zm11.29 9.077l3.209-1.845c.541-.312.541-.812 0-1.125l-3.209-1.845-2.81 2.81 2.81 2.005zm-1.102 1.102l-2.81-2.81L1.905 21.21c.541.312 1.411.312 1.952 0l9.032-5.195-1.952-1.4zM3.857 2.79L12.89 7.985l1.952 2.005-9032-5.195a.996.996 0 0 0-1.952 0z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+
+        <!-- Illustration Content -->
+        <div class="flex-1 relative order-1 md:order-2 flex justify-center">
+          <div class="relative w-72 h-72 md:w-[480px] md:h-[480px]">
+            <!-- Lottie Animation -->
+            <div class="absolute inset-0 -z-0 transform scale-150 pointer-events-none flex items-center justify-center">
+              <lottie-player src="/images/increase.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+            <!-- Character Illustration -->
+            <img 
+              src="/images/wizpiggy2x.webp" 
+              alt="Character Illustration" 
+              class="w-full h-full object-contain relative z-10 animate-fade-in-up" 
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-24 px-4 bg-white relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="rounded-[4rem] p-12 md:p-20 relative overflow-hidden text-center" style={`background-color: ${APP_BG_COLOR}`}>
+          <div class="relative z-10 space-y-8">
+            <span class="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase" style={`background-color: ${ACCENT_COLOR}15; color: ${ACCENT_COLOR}`}>
+              Our Story
+            </span>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight font-klee">
+              Why we built {appName}
+            </h2>
+            <div class="text-lg md:text-xl text-gray-600 leading-relaxed space-y-6 font-klee font-medium max-w-2xl mx-auto text-left md:text-center">
+              <p>{app.story?.[lang as keyof typeof app.story]}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 px-4" style={`background-color: ${APP_BG_COLOR}`}>
+      <div class="max-w-6xl mx-auto space-y-32">
+        <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-24 text-center tracking-tight">
+          What it can do
+        </h2>
+        
+        <!-- Feature 1 -->
+        <div class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+          <div class="w-full md:w-1/2 space-y-8 animate-fade-in-up">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style={`background-color: ${ACCENT_COLOR}15`}>
+              <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>01</span>
+            </div>
+            <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
+              Super Easy Recording
+            </h3>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Just write down how much you spent! No complex math or categories needed. It is so quick that anyone can keep it up.
+            </p>
+          </div>
+          <div class="w-full md:w-1/2 relative group">
+            <div class="absolute -inset-4 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={`background-color: ${ACCENT_COLOR}15`}></div>
+            <img src="/images/screen-input-keyboard.webp" alt="Easy Entry" class="relative w-full h-auto rounded-[2.5rem] shadow-2xl border-[8px] border-white" />
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
+          <div class="w-full md:w-1/2 space-y-8">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style={`background-color: ${ACCENT_COLOR}15`}>
+              <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>02</span>
+            </div>
+            <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
+              Encouraging Messages
+            </h3>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Every time you record, our cute pig character cheers you on! Special animations appear when you hit streaks or milestones, making money tracking feel like a game.
+            </p>
+          </div>
+          <div class="w-full md:w-1/2 relative group">
+            <div class="absolute -inset-4 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={`background-color: ${ACCENT_COLOR}15`}></div>
+            <img src="/images/screen-milestone-3days.webp" alt="Enthusiastic" class="relative w-full h-auto rounded-[2.5rem] shadow-2xl border-[8px] border-white" />
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+          <div class="w-full md:w-1/2 space-y-8">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style={`background-color: ${ACCENT_COLOR}15`}>
+              <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>03</span>
+            </div>
+            <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
+              Safe & Free Forever
+            </h3>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Completely free with no advertisements. Since it is for children, we ensure a safe environment without tracking or distracting ads.
+            </p>
+          </div>
+          <div class="w-full md:w-1/2 relative group">
+            <div class="absolute -inset-4 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={`background-color: ${ACCENT_COLOR}15`}></div>
+            <img src="/images/screen-stats.webp" alt="Safe Use" class="relative w-full h-auto rounded-[2.5rem] shadow-2xl border-[8px] border-white" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Column Section -->
+    <section class="py-24 px-4 bg-white">
+      <div class="max-w-5xl mx-auto py-16 px-8 md:px-16 rounded-[4rem] border-4 border-dashed" style={`border-color: ${ACCENT_COLOR}40; background-color: ${APP_BG_COLOR}40`}>
+        <div class="text-center space-y-6 mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900">
+            More Ways to Use It
+          </h2>
+          <p class="text-xl text-gray-600 font-medium">Great for many situations beyond simple pocket money.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white p-10 rounded-[2.5rem] shadow-sm space-y-8">
+            <h3 class="text-2xl font-black text-gray-900">Quick Notes for Adults</h3>
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>Track lunch or convenience store runs</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>Easily track specific expenses</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>The perfect first step to budgeting</span>
+              </li>
+            </ul>
+            <img src="/images/screen-usecase-daily.webp" alt="Adult Use" class="w-full h-auto rounded-2xl shadow-inner border border-gray-100" />
+          </div>
+          <div class="bg-white p-10 rounded-[2.5rem] shadow-sm space-y-8">
+            <h3 class="text-2xl font-black text-gray-900">Track Hobbies & Passion</h3>
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>Know exactly how much you spend on fanship</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>Dedicated tracker for gaming or hobby gear</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-pink-500 mt-1">●</span>
+                <span>Prevent overspending while having fun</span>
+              </li>
+            </ul>
+            <img src="/images/screen-usecase-oshi.webp" alt="Hobby Use" class="w-full h-auto rounded-2xl shadow-inner border border-gray-100" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Features Section -->
+    <section class="py-24 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-20 text-center tracking-tight">
+          More Advanced Features
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div class="flex flex-col gap-8 group">
+            <div class="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-gray-100 group-hover:scale-105 transition-all duration-500">
+              <img src="/images/screen-stats.webp" alt="Period View" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <h3 class="text-3xl font-black text-white">Review by Period</h3>
+              </div>
+            </div>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Check monthly or yearly trends with graphs and lists. Export your data as CSV or JSON for sharing or backup.
+            </p>
+          </div>
+          <div class="flex flex-col gap-8 group">
+            <div class="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-gray-100 group-hover:scale-105 transition-all duration-500">
+              <img src="/images/screen-settings.webp" alt="Customization" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <h3 class="text-3xl font-black text-white">Settings & Customization</h3>
+              </div>
+            </div>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Change the app title, enable dark mode, and use multi-currency support (Dollar, Euro, Yuan, etc.). Make it truly yours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section class="py-32 px-4 shadow-inner" style={`background-color: ${APP_BG_COLOR}`}>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-16 text-center tracking-tight">Q&A</h2>
+        <div class="space-y-6">
+          {app.qa?.[lang as keyof typeof app.qa].map((item) => (
+            <div class="group bg-white rounded-[2.5rem] p-8 md:p-12 transition-all hover:shadow-xl border-4 border-transparent" style={`hover-border-color: ${ACCENT_COLOR}33`}>
+              <h3 class="text-xl md:text-2xl font-black text-gray-900 mb-6 flex items-start gap-4">
+                <span class="shrink-0" style={`color: ${ACCENT_COLOR}`}>Q.</span>
+                {item.question}
+              </h3>
+              <div class="text-lg text-gray-600 leading-relaxed flex items-start gap-4 pl-1">
+                <span class="font-black shrink-0" style={`color: ${ACCENT_COLOR}cc`}>A.</span>
+                <p>{item.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 px-4 bg-white">
+      <div class="max-w-6xl mx-auto rounded-[4rem] p-12 md:p-24 text-center space-y-12 relative overflow-hidden bg-white border-8" style={`border-color: ${ACCENT_COLOR}`}>
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl -z-0 opacity-10 animate-pulse" style={`background-color: ${ACCENT_COLOR}`}></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl -z-0 opacity-10" style={`background-color: ${ACCENT_COLOR}`}></div>
+        
+        <h2 class="text-4xl md:text-7xl font-black relative z-10 tracking-tight leading-tight" style={`color: ${ACCENT_COLOR}`}>
+          Start tracking\nwith fun today!
+        </h2>
+        
+        <div class="flex flex-wrap justify-center gap-6 relative z-10">
+          <a href="#" class="group flex items-center gap-3 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all hover:scale-105 active:scale-95 shadow-2xl" style={`background-color: ${ACCENT_COLOR}`}>
+            Download Free
+          </a>
+        </div>
+        
+        <p class="font-bold tracking-widest uppercase text-sm relative z-10" style={`color: ${ACCENT_COLOR}`}>
+          No Ads • Eternal Free
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .font-klee {
+    font-family: 'Klee One', cursive;
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>

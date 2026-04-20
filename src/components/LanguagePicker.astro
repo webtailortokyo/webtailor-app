@@ -1,0 +1,53 @@
+---
+import { languages } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+function getTranslatedPath(url: URL, lang: string) {
+  const pathname = url.pathname;
+  const parts = pathname.split('/').filter(Boolean);
+  
+  // If the first part is a supported lang, remove it
+  if (parts.length > 0 && parts[0] in languages) {
+    parts.shift();
+  }
+  
+  // Join the remaining parts
+  const base = parts.join('/');
+  
+  // If default lang, just return the base
+  if (lang === 'ja') {
+    return `/${base}`;
+  }
+  
+  // Return with lang prefix
+  return `/${lang}/${base}`;
+}
+
+const currentPathJa = getTranslatedPath(Astro.url, 'ja');
+const currentPathEn = getTranslatedPath(Astro.url, 'en');
+---
+
+<div class="flex items-center gap-2 p-1 bg-gray-50 rounded-lg border border-gray-100">
+  <a
+    href={currentPathJa}
+    class={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
+      currentLang === 'ja'
+        ? 'bg-white text-gray-900 shadow-sm'
+        : 'text-gray-500 hover:text-gray-900'
+    }`}
+  >
+    JP
+  </a>
+  <a
+    href={currentPathEn}
+    class={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
+      currentLang === 'en'
+        ? 'bg-white text-gray-900 shadow-sm'
+        : 'text-gray-500 hover:text-gray-900'
+    }`}
+  >
+    EN
+  </a>
+</div>

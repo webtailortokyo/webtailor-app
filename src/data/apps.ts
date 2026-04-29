@@ -34,10 +34,10 @@ export interface AppInfo {
 
 export const apps: AppInfo[] = [
   {
-    id: 'okane-memo',
+    id: 'money-memo',
     name: {
       ja: 'おかねメモ',
-      en: 'MoneyMemo',
+      en: 'Money Memo',
     },
     description: {
       ja: 'ADHDの子でも使いやすい、とってもシンプルなお小遣い帳アプリです。',

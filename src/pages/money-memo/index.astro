@@ -1,13 +1,13 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
-import { apps } from '../../../data/apps';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { apps } from '../../data/apps';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const app = apps.find(a => a.id === 'okane-memo')!;
+const app = apps.find(a => a.id === 'money-memo')!;
 
 const appName = app.name[lang as keyof typeof app.name];
 const appDescription = app.description[lang as keyof typeof app.description];
@@ -22,12 +22,13 @@ const APP_BG_COLOR = '#FFFBF0';
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <main class="overflow-hidden bg-white text-gray-800">
+    <!-- Hero Section -->
     <section class="relative pt-20 pb-32 px-4 shadow-sm overflow-hidden" style={`background: linear-gradient(to b, ${APP_BG_COLOR}80, white);`}>
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 relative z-10">
+      <div class="max-w-5xl xl:max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 relative z-10">
         <!-- Text Content -->
-        <div class="flex-1 text-center md:text-left space-y-10 order-2 md:order-1 max-w-lg">
+        <div class="flex-1 text-center md:text-left space-y-10 order-2 md:order-1 max-w-lg xl:max-w-xl">
           <div class="space-y-6">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-tight" style={`color: ${ACCENT_COLOR}`}>
+            <h1 class="text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-tight lg:whitespace-nowrap" style={`color: ${ACCENT_COLOR}`}>
               {appName}
             </h1>
             <p class="text-xl md:text-3xl font-bold tracking-wide text-gray-900">
@@ -49,7 +50,7 @@ const APP_BG_COLOR = '#FFFBF0';
 
         <!-- Illustration Content -->
         <div class="flex-1 relative order-1 md:order-2 flex justify-center">
-          <div class="relative w-72 h-72 md:w-[480px] md:h-[480px]">
+          <div class="relative w-72 h-72 md:w-[400px] md:h-[400px] xl:w-[480px] xl:h-[480px]">
             <!-- Lottie Animation -->
             <div class="absolute inset-0 -z-0 transform scale-150 pointer-events-none flex items-center justify-center">
               <lottie-player src="/images/increase.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
@@ -71,10 +72,10 @@ const APP_BG_COLOR = '#FFFBF0';
         <div class="rounded-[4rem] p-12 md:p-20 relative overflow-hidden text-center" style={`background-color: ${APP_BG_COLOR}`}>
           <div class="relative z-10 space-y-8">
             <span class="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase" style={`background-color: ${ACCENT_COLOR}15; color: ${ACCENT_COLOR}`}>
-              Our Story
+              {lang === 'ja' ? 'つくった理由' : 'Our Story'}
             </span>
             <h2 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight font-klee">
-              Why we built {appName}
+              {lang === 'ja' ? '「おかねメモ」が生まれたわけ' : 'Why we built Money Memo'}
             </h2>
             <div class="text-lg md:text-xl text-gray-600 leading-relaxed space-y-6 font-klee font-medium max-w-2xl mx-auto text-left md:text-center">
               <p>{app.story?.[lang as keyof typeof app.story]}</p>
@@ -88,7 +89,7 @@ const APP_BG_COLOR = '#FFFBF0';
     <section class="py-24 px-4" style={`background-color: ${APP_BG_COLOR}`}>
       <div class="max-w-6xl mx-auto space-y-32">
         <h2 class="text-3xl md:text-6xl font-black text-gray-900 mb-24 text-center tracking-tight">
-          What it can do
+          {lang === 'ja' ? 'このアプリでできること' : 'What it can do'}
         </h2>
         
         <!-- Feature 1 -->
@@ -98,10 +99,10 @@ const APP_BG_COLOR = '#FFFBF0';
               <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>01</span>
             </div>
             <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
-              Super Easy Recording
+              {lang === 'ja' ? 'とにかくカンタンに記録できる' : 'Super Easy Recording'}
             </h3>
             <p class="text-xl text-gray-600 leading-relaxed">
-              Just write down how much you spent! No complex math or categories needed. It is so quick that anyone can keep it up.
+              {lang === 'ja' ? '「いくら使ったか」を書くだけ！むずかしい計算や分類はいりません。ADHDの子でも、めんどくさがりな大人でも、一瞬で終わるから続けられます。' : 'Just write down how much you spent! No complex math or categories needed. It is so quick that anyone can keep it up.'}
             </p>
           </div>
           <div class="w-full md:w-1/2 relative group">
@@ -117,10 +118,10 @@ const APP_BG_COLOR = '#FFFBF0';
               <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>02</span>
             </div>
             <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
-              Encouraging Messages
+              {lang === 'ja' ? 'やる気が出るメッセージ' : 'Encouraging Messages'}
             </h3>
             <p class="text-xl text-gray-600 leading-relaxed">
-              Every time you record, our cute pig character cheers you on! Special animations appear when you hit streaks or milestones, making money tracking feel like a game.
+              {lang === 'ja' ? '書くたびに、かわいい豚のキャラクターが応援してくれます！3日続いた時や、たくさん書いた時など、うれしいアニメーションが出るから、お小遣い帳をつけるのが楽しくなります。' : 'Every time you record, our cute pig character cheers you on! Special animations appear when you hit streaks or milestones, making money tracking feel like a game.'}
             </p>
           </div>
           <div class="w-full md:w-1/2 relative group">
@@ -136,10 +137,10 @@ const APP_BG_COLOR = '#FFFBF0';
               <span class="text-3xl font-bold" style={`color: ${ACCENT_COLOR}`}>03</span>
             </div>
             <h3 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight">
-              Safe & Free Forever
+              {lang === 'ja' ? '広告なしでずっと安心' : 'Safe & Free Forever'}
             </h3>
             <p class="text-xl text-gray-600 leading-relaxed">
-              Completely free with no advertisements. Since it is for children, we ensure a safe environment without tracking or distracting ads.
+              {lang === 'ja' ? '全部無料。しかも広告は一切出ません。大事な子供たちが使うものだから、変な広告に触れる心配もなく、安心してスマホを渡してあげられます。' : 'Completely free with no advertisements. Since it is for children, we ensure a safe environment without tracking or distracting ads.'}
             </p>
           </div>
           <div class="w-full md:w-1/2 relative group">
@@ -155,44 +156,44 @@ const APP_BG_COLOR = '#FFFBF0';
       <div class="max-w-5xl mx-auto py-16 px-8 md:px-16 rounded-[4rem] border-4 border-dashed" style={`border-color: ${ACCENT_COLOR}40; background-color: ${APP_BG_COLOR}40`}>
         <div class="text-center space-y-6 mb-16">
           <h2 class="text-3xl md:text-5xl font-black text-gray-900">
-            More Ways to Use It
+            {lang === 'ja' ? 'こんな使い方もおすすめ！' : 'More Ways to Use It'}
           </h2>
-          <p class="text-xl text-gray-600 font-medium">Great for many situations beyond simple pocket money.</p>
+          <p class="text-xl text-gray-600 font-medium">{lang === 'ja' ? 'お小遣い帳としてだけでなく、いろいろな場面で活躍します。' : 'Great for many situations beyond simple pocket money.'}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div class="bg-white p-10 rounded-[2.5rem] shadow-sm space-y-8">
-            <h3 class="text-2xl font-black text-gray-900">Quick Notes for Adults</h3>
+            <h3 class="text-2xl font-black text-gray-900">{lang === 'ja' ? '大人の方の「とりあえずメモ」に' : 'Quick Notes for Adults'}</h3>
             <ul class="space-y-4 text-gray-600">
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>Track lunch or convenience store runs</span>
+                <span>{lang === 'ja' ? '平日のランチ代やコンビニ代だけ記録' : 'Track lunch or convenience store runs'}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>Easily track specific expenses</span>
+                <span>{lang === 'ja' ? '特定の出費だけを気軽に把握' : 'Easily track specific expenses'}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>The perfect first step to budgeting</span>
+                <span>{lang === 'ja' ? '家計管理の第一歩として最適' : 'The perfect first step to budgeting'}</span>
               </li>
             </ul>
             <img src="/images/screen-usecase-daily.webp" alt="Adult Use" class="w-full h-auto rounded-2xl shadow-inner border border-gray-100" />
           </div>
           <div class="bg-white p-10 rounded-[2.5rem] shadow-sm space-y-8">
-            <h3 class="text-2xl font-black text-gray-900">Track Hobbies & Passion</h3>
+            <h3 class="text-2xl font-black text-gray-900">{lang === 'ja' ? '「推し活」や「趣味」の記録に' : 'Track Hobbies & Passion'}</h3>
             <ul class="space-y-4 text-gray-600">
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>Know exactly how much you spend on fanship</span>
+                <span>{lang === 'ja' ? '推しに使った合計金額をしっかり把握' : 'Know exactly how much you spend on fanship'}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>Dedicated tracker for gaming or hobby gear</span>
+                <span>{lang === 'ja' ? 'ゲーム課金や趣味の道具代専用に' : 'Dedicated tracker for gaming or hobby gear'}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-pink-500 mt-1">●</span>
-                <span>Prevent overspending while having fun</span>
+                <span>{lang === 'ja' ? '使いすぎを防いで楽しく応援' : 'Prevent overspending while having fun'}</span>
               </li>
             </ul>
             <img src="/images/screen-usecase-oshi.webp" alt="Hobby Use" class="w-full h-auto rounded-2xl shadow-inner border border-gray-100" />
@@ -205,29 +206,29 @@ const APP_BG_COLOR = '#FFFBF0';
     <section class="py-24 px-4 bg-white">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-20 text-center tracking-tight">
-          More Advanced Features
+          {lang === 'ja' ? 'さらに便利な機能も！' : 'More Advanced Features'}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div class="flex flex-col gap-8 group">
             <div class="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-gray-100 group-hover:scale-105 transition-all duration-500">
               <img src="/images/screen-stats.webp" alt="Period View" class="w-full h-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                <h3 class="text-3xl font-black text-white">Review by Period</h3>
+                <h3 class="text-3xl font-black text-white">{lang === 'ja' ? '期間で見る' : 'Review by Period'}</h3>
               </div>
             </div>
             <p class="text-xl text-gray-600 leading-relaxed">
-              Check monthly or yearly trends with graphs and lists. Export your data as CSV or JSON for sharing or backup.
+              {lang === 'ja' ? '月ごと、年ごとのデータ推移をグラフやリストで確認できます。大切なデータをCSVやJSONで共有・保存することも可能です。' : 'Check monthly or yearly trends with graphs and lists. Export your data as CSV or JSON for sharing or backup.'}
             </p>
           </div>
           <div class="flex flex-col gap-8 group">
             <div class="relative w-full aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-gray-100 group-hover:scale-105 transition-all duration-500">
               <img src="/images/screen-settings.webp" alt="Customization" class="w-full h-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                <h3 class="text-3xl font-black text-white">Settings & Customization</h3>
+                <h3 class="text-3xl font-black text-white">{lang === 'ja' ? '設定とカスタマイズ' : 'Settings & Customization'}</h3>
               </div>
             </div>
             <p class="text-xl text-gray-600 leading-relaxed">
-              Change the app title, enable dark mode, and use multi-currency support (Dollar, Euro, Yuan, etc.). Make it truly yours.
+              {lang === 'ja' ? 'アプリのタイトルを自由に名付けたり、ダークモード、英語、多通貨（ドルやユーロ、元など）にも完全対応。あなただけの一台に。' : 'Change the app title, enable dark mode, and use multi-currency support (Dollar, Euro, Yuan, etc.). Make it truly yours.'}
             </p>
           </div>
         </div>
@@ -262,17 +263,17 @@ const APP_BG_COLOR = '#FFFBF0';
         <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl -z-0 opacity-10" style={`background-color: ${ACCENT_COLOR}`}></div>
         
         <h2 class="text-4xl md:text-7xl font-black relative z-10 tracking-tight leading-tight" style={`color: ${ACCENT_COLOR}`}>
-          Start tracking\nwith fun today!
+          {lang === 'ja' ? '今日から楽しく\nおかねを記録しよう！' : 'Start tracking\nwith fun today!'}
         </h2>
         
         <div class="flex flex-wrap justify-center gap-6 relative z-10">
           <a href="#" class="group flex items-center gap-3 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all hover:scale-105 active:scale-95 shadow-2xl" style={`background-color: ${ACCENT_COLOR}`}>
-            Download Free
+            {lang === 'ja' ? '無料でダウンロード' : 'Download Free'}
           </a>
         </div>
         
         <p class="font-bold tracking-widest uppercase text-sm relative z-10" style={`color: ${ACCENT_COLOR}`}>
-          No Ads • Eternal Free
+          {lang === 'ja' ? '広告なし・ずっと無料' : 'No Ads • Eternal Free'}
         </p>
       </div>
     </section>

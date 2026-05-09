@@ -68,8 +68,52 @@ export const apps: AppInfo[] = [
       googlePlay: '#',
     },
     story: {
-      ja: 'ADHDの我が子のために、お小遣い帳をつけてほしくて作りました。本物のお金と1円でもズレるとイヤになってやめてしまう特性に合わせて、あえて「いくら残っているか（残高）」は見せずに、「書くこと」を楽しめるように工夫しています。',
-      en: 'Created for my child with ADHD who struggled with traditional pocket money books. Since even a tiny mismatch in balance can be discouraging, we focused entirely on the fun of "recording" rather than tracking every penny.',
+      ja: `子どもにお小遣いを渡すようになり、あわせてお小遣い帳の付け方も教えました。
+「入金 − 出金 = 残高」。手元のお金と同じだね、と。
+算数の勉強にもなり、とても良い習慣です。
+
+しかし、我が家の子どもはADHD傾向。
+まず、毎回きちんと記録を続けることが難しい。
+そして一度でも付け忘れると、次に記録したときには残高が合わなくなります。
+
+「だいたいでいいから続けてみよう」と声をかけても、
+「合っていない」という事実がストレスになり、だんだんと手が止まっていきました。
+
+けれど、本当に大切なのは残高をぴったり合わせることではありません。
+どれくらい使ったのか、使いすぎていないか。
+それを把握することのほうが、ずっと大事です。
+
+だからこのアプリでは、あえて残高を表示しない設計にしました。
+目的はあくまで「記録を続けること」。
+
+さらに、ADHDの特性として「楽しさ」や「刺激」も欠かせません。
+無理なく続けられるよう、書くこと自体が楽しくなる工夫も取り入れています。
+
+苦手をがんばりで乗り越えるのではなく、続けられる形に変える。
+そのために生まれたのが「おかねメモ」です。`,
+      en: `When I started giving my child an allowance, I also taught them how to keep track of it in a ledger.
+"Income - Expenses = Balance." I explained that it's just like the actual money they have.
+It's a great habit that also helps with their math skills.
+
+However, our child has ADHD tendencies.
+First, consistently keeping a record every single time is a challenge.
+And if they forget to record even once, the balance won't match the next time they try.
+
+Even when I encouraged them, saying, "Just rough estimates are fine, let's keep going,"
+the simple fact that "it doesn't match" became a source of stress, and they gradually stopped writing.
+
+But what's truly important isn't getting the balance to match perfectly.
+How much did I spend? Am I spending too much?
+Understanding those aspects is much more crucial.
+
+That's why we deliberately designed this app not to display the balance.
+The sole objective is simply "to continue recording."
+
+Furthermore, "fun" and "stimulation" are essential for children with ADHD.
+To make it easy to stick with, we've incorporated features that make the act of writing itself enjoyable.
+
+Instead of trying to overcome weaknesses through sheer effort, we changed it into a format that can be easily continued.
+That is why "Money Memo" was born.`,
     },
     usage: {
       ja: [

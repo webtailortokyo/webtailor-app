@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('contact.success.title')}>
+  <Header />
+
+  <main class="flex-grow flex items-center justify-center py-24 px-4 bg-gray-50/50">
+    <div class="max-w-xl w-full text-center space-y-12">
+      <div class="relative">
+        <div class="absolute inset-0 bg-blue-100 blur-3xl opacity-30 rounded-full scale-150"></div>
+        <div class="relative bg-white w-24 h-24 mx-auto rounded-[32px] shadow-xl shadow-blue-100 flex items-center justify-center border border-gray-100">
+          <svg class="w-12 h-12 text-[#3585c7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h1 class="text-4xl font-black text-gray-900 tracking-tight">{t('contact.success.title')}</h1>
+        <p class="text-xl text-gray-500 font-medium leading-relaxed">
+          {t('contact.success.message')}
+        </p>
+      </div>
+
+      <div>
+        <a
+          href="/"
+          class="inline-block bg-gradient-to-r from-[#3585c7] to-[#70c6dd] px-12 py-5 rounded-2xl text-white font-black text-lg tracking-widest shadow-lg shadow-blue-200 transform transition-all hover:-translate-y-1 hover:brightness-105 active:scale-[0.98]"
+        >
+          {t('contact.success.back')}
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -40,8 +40,8 @@ export const apps: AppInfo[] = [
       en: 'Money Memo',
     },
     description: {
-      ja: 'ADHDの子でも使いやすい、とってもシンプルなお小遣い帳アプリです。',
-      en: 'A simple pocket money tracker designed for children with ADHD.',
+      ja: '家計簿が続かなかった人へ。カテゴリ分けなし、残高表示なし。まずは“記録を続けること”を大切にした、シンプルなお金メモです。',
+      en: 'For those who couldn\'t keep up with budgeting. No categories, no balance display. A simple money memo prioritizing "continuing to record".',
     },
     features: {
       ja: [
@@ -55,7 +55,7 @@ export const apps: AppInfo[] = [
         'Enthusiastic messages keep you going',
       ],
     },
-    iconUrl: '/images/app_icon_sq2x.webp',
+    iconUrl: '/images/icon_ios.webp',
     screenshotUrls: [
       '/images/screen-main.webp',
       '/images/screen-input-keyboard.webp',

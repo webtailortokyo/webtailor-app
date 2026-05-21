@@ -64,7 +64,7 @@ export const apps: AppInfo[] = [
       '/images/screen-stats.webp',
     ],
     storeLinks: {
-      appStore: 'https://apps.apple.com/us/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020?itscg=30200&itsct=apps_box_badge&mttnsubad=6767521020',
+      appStore: 'https://apps.apple.com/jp/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020',
       googlePlay: '#',
     },
     story: {

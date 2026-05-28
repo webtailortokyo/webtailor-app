@@ -6,9 +6,10 @@ interface Props {
   title?: string;
   description?: string;
   lang?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -25,6 +26,20 @@ const siteDescription = description || t('site.description');
     <meta name="generator" content={Astro.generator} />
     <title>{siteTitle}</title>
     <meta name="description" content={siteDescription} />
+    
+    <!-- OGP Tags -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={new URL(ogImage || '/images/ogp-webtailor.png', Astro.url).href} />
+    <meta property="og:site_name" content={t('site.title')} />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={siteDescription} />
+    <meta name="twitter:image" content={new URL(ogImage || '/images/ogp-webtailor.png', Astro.url).href} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Inter:wght@400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">

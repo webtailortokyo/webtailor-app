@@ -65,7 +65,7 @@ export const apps: AppInfo[] = [
     ],
     storeLinks: {
       appStore: 'https://apps.apple.com/jp/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020',
-      googlePlay: '#',
+      googlePlay: 'https://play.google.com/store/apps/details?id=work.webtailor.moneymemo',
     },
     story: {
       ja: `子どもにお小遣いを渡すようになり、あわせてお小遣い帳の付け方も教えました。

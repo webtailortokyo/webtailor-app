@@ -10,7 +10,6 @@ const t = useTranslations(lang);
 const app = apps.find(a => a.id === 'money-memo')!;
 
 const appName = app.name[lang as keyof typeof app.name];
-const appDescription = app.description[lang as keyof typeof app.description];
 
 const BASE_COLOR = '#FFFBF0';
 const ACCENT_COLOR = '#ED4CA5';
@@ -18,60 +17,57 @@ const TEXT_COLOR = '#4A4A4A';
 const OTHER_COLOR = '#FFF2D9';
 ---
 
-<Layout title={`${appName} - The Money Memo for those who struggle to keep track`} description={appDescription} ogImage="/images/ogp-moneymemo.png">
+<Layout title={`${appName} - A money log for people who gave up on budgeting apps`} description="A simple money logging app with no balance tracking, no categories, and no pressure to manage everything perfectly. Just record what you spent and keep going." ogImage="/images/ogp-moneymemo.png">
   <Header />
 
   <main class="bg-[#FFFBF0] text-[#4A4A4A] overflow-hidden zen-maru selection:bg-[#ED4CA5] selection:text-white">
-    
+
     <!-- ① First View -->
-    <section class="relative pt-8 pb-12 md:pt-12 md:pb-16 px-6 bg-[#FFFBF0]">
-      <!-- Background Decorations -->
+    <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 px-6 bg-[#FFFBF0]">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#FFE2E2] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl opacity-50"></div>
-        <div class="absolute top-[20%] right-[-5%] w-[500px] h-[400px] bg-[#DBFCE7] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] blur-3xl opacity-50"></div>
-        <div class="absolute top-[60%] left-[20%] w-[300px] h-[300px] bg-[#FFF2D9] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] blur-3xl opacity-60"></div>
-        <div class="absolute top-[5%] left-[45%] md:left-[55%] -translate-x-1/2 w-64 h-64 bg-dots-pink opacity-50 -rotate-12 animate-[float_8s_ease-in-out_infinite]"></div>
-        <div class="absolute bottom-[5%] right-[5%] w-72 h-72 bg-dots-green opacity-50 rotate-6 animate-[float_10s_ease-in-out_infinite_reverse]"></div>
+        <div class="absolute inset-0 bg-grid-warm opacity-50"></div>
+        <div class="absolute top-[-15%] right-[-10%] w-[500px] h-[500px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-[#FFE9F4] rounded-full blur-3xl opacity-40"></div>
+        <!-- Thin outline circles -->
+        <div class="absolute top-[8%] right-[6%] w-[380px] h-[380px] border border-[#ED4CA5]/15 rounded-full"></div>
+        <div class="absolute top-[14%] right-[10%] w-[300px] h-[300px] border border-[#E8B94F]/20 rounded-full"></div>
+        <div class="absolute bottom-[-6%] left-[4%] w-[220px] h-[220px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 relative z-10">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 relative z-10">
         <!-- Left Text Area -->
-        <div class="flex-1 space-y-8 text-center w-full flex flex-col items-center">
-          <div class="space-y-4 flex flex-col items-center">
-            <div class="flex flex-col items-center space-y-2">
-              <p class="text-xl md:text-2xl font-bold tracking-widest text-[#4A4A4A] uppercase">
-                For those who struggle to <span class="text-[#ED4CA5]">keep going</span>
-              </p>
-              <svg width="240" height="20" viewBox="0 0 240 20" fill="none" class="hidden md:block">
-                <path d="M10,0 C80,0 110,0 120,18 C130,0 160,0 230,0" stroke="#ED4CA5" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </svg>
-              <svg width="180" height="15" viewBox="0 0 180 15" fill="none" class="md:hidden">
-                <path d="M0,0 C60,0 85,0 90,14 C95,0 120,0 180,0" stroke="#ED4CA5" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-widest pt-2">
+        <div class="flex-1 space-y-8 text-center md:text-left w-full flex flex-col items-center md:items-start">
+          <div class="space-y-5 flex flex-col items-center md:items-start">
+            <!-- Catchphrase -->
+            <p class="text-lg md:text-xl font-bold tracking-wide leading-relaxed text-[#4A4A4A]">
+              A <span class="text-[#ED4CA5]">money log</span> for people<br class="md:hidden" /> who gave up on budgeting apps
+            </p>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-widest pt-2">
               <span class="text-[#ED4CA5]">Money</span><span class="text-[#4A4A4A]">Memo</span>
             </h1>
           </div>
 
-          <div class="space-y-6 pt-2 text-center">
-            <p class="text-xl md:text-2xl leading-loose text-[#4A4A4A] font-bold tracking-wide">
-              For pocket money, lunch expenses,<br />or your hobbies.
+          <!-- Subcopy -->
+          <div class="space-y-5 pt-2">
+            <p class="text-lg md:text-xl leading-relaxed text-[#ED4CA5] font-bold tracking-wide">
+              Less effort. Easier to keep going.
             </p>
-            <p class="text-base md:text-lg leading-relaxed text-[#757575] font-medium tracking-wide">
-              Simple enough to keep going.<br />A money memo app you can use at your own pace.
+            <p class="text-base md:text-lg leading-loose text-[#857E74] font-medium tracking-wide">
+              Just enter what you spent and how much.<br />No balance tracking, no categories,<br class="md:hidden" /> no pressure to manage everything perfectly.
             </p>
           </div>
 
           <!-- Download Badges -->
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-6">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
             <!-- App Store -->
             <a href="https://apps.apple.com/us/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020?itscg=30200&itsct=apps_box_badge&mttnsubad=6767521020" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1779148800" alt="Download on the App Store" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
+              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1779148800" alt="Download on the App Store" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
             </a>
             <!-- Google Play (Coming Soon) -->
-            <div class="inline-flex items-center bg-[#0a0a0a] text-white rounded-xl px-4 py-2 border border-gray-800 opacity-60 cursor-not-allowed select-none transition-all duration-300" style="width: 224px; height: 82px; justify-content: center; gap: 10px;">
+            <div class="inline-flex items-center bg-[#0a0a0a] text-white rounded-xl px-4 py-2 border border-gray-800 opacity-60 cursor-not-allowed select-none transition-all duration-300" style="width: 200px; height: 74px; justify-content: center; gap: 10px;">
               <svg class="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M5,3.5C5,3.2 5.2,3 5.5,3C5.7,3 5.9,3.1 6,3.2L19.5,11.2C20.1,11.5 20.1,12.5 19.5,12.8L6,20.8C5.9,20.9 5.7,21 5.5,21C5.2,21 5,20.8 5,20.5V3.5M7,6V18L14.5,12L7,6Z" />
               </svg>
@@ -86,106 +82,143 @@ const OTHER_COLOR = '#FFF2D9';
 
         <!-- Right Image Area -->
         <div class="flex-1 relative flex justify-center w-full mt-8 md:mt-0">
-          <div class="relative w-[220px] md:w-[260px] lg:w-[280px]">
-            <div class="bg-black p-2 md:p-2.5 rounded-[2.5rem] shadow-2xl relative">
+          <div class="relative w-[220px] md:w-[250px] lg:w-[270px]">
+            <div class="absolute -inset-7 z-0 rounded-[3rem] border border-dashed border-[#ED4CA5]/20 bg-white/20 rotate-3"></div>
+            <div class="absolute -left-12 top-12 z-0 hidden h-24 w-24 rounded-full border border-[#E8B94F]/30 bg-[#FFF2D9]/30 md:block"></div>
+            <div class="bg-black p-2 md:p-2.5 rounded-[2.5rem] shadow-xl relative z-10">
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-3xl z-20"></div>
               <img src="/images/fv_screenshot.webp" alt="Money Memo App Screen" class="w-full h-auto rounded-[2rem] border border-gray-200" />
             </div>
-            <img src="/images/basic2x.webp" alt="Pig Character" class="w-28 h-28 md:w-36 md:h-36 absolute -bottom-4 -right-10 md:-right-16 animate-[float_6s_ease-in-out_infinite]" />
+            <img src="/images/basic2x.webp" alt="Pig Character" class="w-24 h-24 md:w-28 md:h-28 absolute -bottom-4 -right-8 md:-right-12 z-20 animate-[float_6s_ease-in-out_infinite]" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ② Empathy Section -->
-    <section class="py-24 px-6 relative bg-white">
+    <section class="py-20 md:py-28 px-6 relative bg-white">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[-5%] w-[450px] h-[450px] bg-[#FFF2D9] rounded-[50%_50%_30%_70%/50%_70%_30%_50%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[10%] right-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-12 animate-[float_12s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">01</span>
+        <div class="absolute bottom-[10%] right-[-6%] w-[280px] h-[280px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
       <div class="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold leading-relaxed text-[#4A4A4A] relative z-10">
-            <span class="marker-pink">Do your expense trackers<br class="md:hidden" /> end up like this?</span>
+
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">REASON</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold leading-relaxed text-[#4A4A4A]">
+            <span class="marker-pink">If budgeting never stuck,<br class="md:hidden" /> it's probably not your fault.</span>
           </h2>
         </div>
-        
+
         <div class="flex justify-center -mt-4">
-          <img src="/images/question2x.webp" alt="Questioning Pig" class="w-24 h-24 md:w-28 md:h-28 opacity-80" />
+          <img src="/images/question2x.webp" alt="Questioning Pig" class="w-20 h-20 md:w-24 md:h-24 opacity-80" />
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 pt-4">
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">Only trying hard at the start</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 pt-2 text-left">
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">01</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">Starting strong, then fading</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">Categorizing is a hassle</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">02</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">Categorizing feels like a chore</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">Frustrated when off by 1 cent</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">03</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">One small mismatch ruins it</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">Eventually stop opening the app</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">04</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">One day, you just stop opening the app</p>
+            </div>
           </div>
         </div>
 
-        <div class="pt-8 relative inline-block">
-          <p class="text-2xl md:text-3xl font-bold text-[#ED4CA5] leading-relaxed">
-            That's why we reduced the<br class="md:hidden" /> "strict management" aspect.
+        <div class="pt-6 relative inline-block">
+          <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+            So we cut down on<br class="md:hidden" /> the "proper management" part.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ③ Features -->
-    <section class="py-24 px-6 relative bg-[#FFFBF0]">
+    <section class="py-20 md:py-28 px-6 relative bg-[#FFFBF0]">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[0%] right-[5%] w-[400px] h-[400px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[10%] right-[5%] w-64 h-64 bg-dots-pink opacity-40 -rotate-6 animate-[float_9s_ease-in-out_infinite_reverse]"></div>
-        <div class="absolute bottom-[10%] left-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-12 animate-[float_11s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">02</span>
+        <div class="absolute bottom-[-10%] right-[8%] w-[360px] h-[360px] border border-[#ED4CA5]/10 rounded-full"></div>
+        <div class="absolute bottom-[-4%] right-[14%] w-[260px] h-[260px] border border-[#E8B94F]/15 rounded-full"></div>
       </div>
 
       <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
         <div class="flex-1 space-y-10 order-2 md:order-1">
-          <div class="flex md:block justify-center text-center md:text-left">
-             <h2 class="text-3xl md:text-4xl font-bold leading-relaxed text-[#4A4A4A] relative z-10">
-               <span class="marker-yellow">Money Memo is a simple app<br />focused on<br />"making it easy to continue".</span>
+          <div class="space-y-5 text-center md:text-left">
+             <div class="flex items-center justify-center md:justify-start gap-3">
+               <span class="w-10 h-px bg-[#ED4CA5]/40 md:hidden"></span>
+               <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+               <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FEATURES</p>
+               <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+               <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+             </div>
+             <h2 class="text-2xl md:text-3xl font-bold leading-relaxed text-[#4A4A4A]">
+               <span class="marker-yellow">Money Memo is a simple app<br />built around one thing:<br />being easy to keep going.</span>
              </h2>
           </div>
-          <ul class="space-y-6 text-xl text-[#4A4A4A] font-medium">
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> Just enter 'Item' and 'Amount'
+          <ul class="space-y-4 text-base md:text-lg text-[#4A4A4A] font-medium">
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              Just enter what you spent and how much
             </li>
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> Text-only notes without money are OK
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              A note by itself, without an amount, is fine too
             </li>
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> Designed to make you want to open it
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              No balance display — a small mismatch never stops you
+            </li>
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              No categories — nothing to decide, just log it
+            </li>
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              A little bit of fun to help you keep going
             </li>
           </ul>
-          <div class="text-center md:text-left pt-4">
-            <p class="text-2xl font-bold text-[#ED4CA5] leading-relaxed">
-              Rather than "managing perfectly",<br />we value building the habit first.
+          <div class="text-center md:text-left pt-2">
+            <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+              Rather than "managing perfectly",<br />we value keeping the habit going.
             </p>
           </div>
         </div>
         <div class="flex-1 order-1 md:order-2 flex justify-center items-center w-full relative min-h-[350px] md:min-h-[450px]">
           <!-- Card 1: Simple Input -->
-          <div class="absolute z-10 transform -rotate-6 -translate-x-12 -translate-y-12 hover:z-40 hover:scale-105 hover:-rotate-2 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-48 md:w-64">
+          <div class="absolute z-10 transform -rotate-3 -translate-x-12 -translate-y-12 hover:z-40 hover:scale-105 hover:-rotate-1 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-48 md:w-64">
                 <img src="/images/simple_input.webp" alt="Simple Input" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
           <!-- Card 2: Only Memo -->
-          <div class="absolute z-20 transform rotate-3 translate-x-12 -translate-y-4 hover:z-40 hover:scale-105 hover:rotate-1 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-44 md:w-56">
+          <div class="absolute z-20 transform rotate-2 translate-x-12 -translate-y-4 hover:z-40 hover:scale-105 hover:rotate-1 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-44 md:w-56">
                 <img src="/images/only_memo.webp" alt="Memo Only" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
           <!-- Card 3: Milestone -->
-          <div class="absolute z-30 transform -rotate-3 -translate-x-4 translate-y-24 md:translate-y-28 hover:z-40 hover:scale-105 hover:rotate-0 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-52 md:w-64">
+          <div class="absolute z-30 transform -rotate-2 -translate-x-4 translate-y-24 md:translate-y-28 hover:z-40 hover:scale-105 hover:rotate-0 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-52 md:w-64">
                 <img src="/images/milestone.webp" alt="Fun to continue" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
@@ -194,197 +227,333 @@ const OTHER_COLOR = '#FFF2D9';
     </section>
 
     <!-- ④ Use Cases -->
-    <section class="py-24 px-6 relative bg-white">
+    <section class="py-20 md:py-28 px-6 relative bg-white">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-[#FFE2E2] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[5%] right-[5%] w-64 h-64 bg-dots-green opacity-40 rotate-12 animate-[float_11s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">03</span>
+        <div class="absolute top-[15%] right-[-8%] w-[320px] h-[320px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-5xl mx-auto space-y-16 relative z-10">
-        <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] relative z-10 leading-relaxed">
+      <div class="max-w-5xl mx-auto space-y-14 relative z-10">
+        <div class="text-center space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">USE CASES</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
             <span class="marker-pink">How to use it</span>
           </h2>
+          <p class="text-base md:text-lg text-[#857E74] font-medium pt-2">
+            For the expenses you care about — or as a simple allowance log.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          
-          <div class="bg-[#FFFBF0] rounded-[2.5rem] p-10 md:p-14 space-y-8 shadow-sm relative overflow-hidden group border border-gray-100">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#DBFCE7] to-transparent opacity-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+
+          <!-- 4-1 Expenses you care about -->
+          <div class="bg-[#FFFBF0] rounded-[2rem] p-9 md:p-12 space-y-8 border border-[#F0EBDD] border-t-4 border-t-[#ED4CA5]/50 shadow-warm relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-36 h-36 border border-[#ED4CA5]/15 rounded-full pointer-events-none"></div>
+            <div class="absolute -top-4 -right-4 w-20 h-20 border border-[#ED4CA5]/10 rounded-full pointer-events-none"></div>
             <div class="text-center md:text-left">
-              <h3 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] relative z-10">
-                <span class="marker-green">As a Pocket Money Tracker</span>
+              <h3 class="text-xl md:text-2xl font-bold text-[#4A4A4A] relative z-10">
+                <span class="marker-pink">For the Expenses You Care About</span>
               </h3>
             </div>
-            <ul class="space-y-4 text-lg text-[#4A4A4A] font-medium relative z-10">
+            <ul class="flex flex-wrap justify-center md:justify-start gap-3 text-sm md:text-base text-[#4A4A4A] font-medium relative z-10">
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Lunches</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Fandom</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Hobbies</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Subscriptions</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Coffee runs</li>
+            </ul>
+            <div class="space-y-3 text-lg md:text-xl font-bold text-[#4A4A4A] pt-2 text-center md:text-left leading-relaxed relative z-10">
+              <p>You don't have to track everything.</p>
+              <p>Just the expenses<br />you actually care about.</p>
+            </div>
+          </div>
+
+          <!-- 4-2 Allowance log -->
+          <div class="bg-[#FFFBF0] rounded-[2rem] p-9 md:p-12 space-y-8 border border-[#F0EBDD] border-t-4 border-t-[#4CAF7D]/50 shadow-warm relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-36 h-36 border border-[#4CAF7D]/15 rounded-full pointer-events-none"></div>
+            <div class="absolute -top-4 -right-4 w-20 h-20 border border-[#4CAF7D]/10 rounded-full pointer-events-none"></div>
+            <div class="text-center md:text-left">
+              <h3 class="text-xl md:text-2xl font-bold text-[#4A4A4A] relative z-10">
+                <span class="marker-green">As a Simple Allowance Log</span>
+              </h3>
+            </div>
+            <ul class="space-y-4 text-base md:text-lg text-[#4A4A4A] font-medium relative z-10">
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
-                Track immediately with your phone
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
+                Log a purchase right when it happens
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
-                No worries about losing it like paper
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
+                No lost notebooks, unlike paper
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
-                Easy to continue with just Item and Amount
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
+                Just an item and an amount, so it's easy to keep up
               </li>
             </ul>
-            <p class="text-xl font-bold text-[#4A4A4A] pt-4 relative z-10 text-center md:text-left leading-relaxed">
-              Even if it's not perfect,<br />we value the act of recording first.
+            <p class="text-lg md:text-xl font-bold text-[#4A4A4A] pt-2 text-center md:text-left leading-relaxed relative z-10">
+              Recording comes first,<br />perfect balancing later.<br />An allowance log that's easy<br class="md:hidden" /> for parents to recommend.
             </p>
           </div>
 
-          <div class="bg-[#FFFBF0] rounded-[2.5rem] p-10 md:p-14 space-y-8 shadow-sm relative overflow-hidden group border border-gray-100">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#FFE2E2] to-transparent opacity-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-            <div class="text-center md:text-left">
-              <h3 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] relative z-10">
-                <span class="marker-pink">To Track Specific Expenses</span>
-              </h3>
-            </div>
-            <ul class="grid grid-cols-2 gap-4 text-base md:text-lg text-[#4A4A4A] font-medium relative z-10">
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">Weekday Lunches</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">Hobbies / Fandom</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">Entertainment</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">Subscriptions</li>
-            </ul>
-            <div class="space-y-4 text-xl font-bold text-[#4A4A4A] pt-4 relative z-10 text-center md:text-left">
-              <p>"Maybe I'm spending too much..."</p>
-              <p>You can easily track<br />just those specific expenses.</p>
-              <p>You don't have to manage everything.</p>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ⑤ 習慣化 -->
-    <section class="py-32 px-6 relative bg-[#FFFBF0]">
+    <!-- ⑤ Not trying too hard -->
+    <section class="py-24 md:py-32 px-6 relative bg-[#FFFBF0]">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#FFE2E2] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl opacity-30"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[450px] h-[450px] bg-[#DBFCE7] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[5%] left-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-6 animate-[float_10s_ease-in-out_infinite]"></div>
-        <div class="absolute bottom-[5%] right-[5%] w-64 h-64 bg-dots-pink opacity-40 -rotate-12 animate-[float_12s_ease-in-out_infinite_reverse]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">04</span>
+        <div class="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[8%] left-[-6%] w-[280px] h-[280px] border border-[#ED4CA5]/10 rounded-full"></div>
+        <!-- Quote decorations -->
+        <span class="absolute top-[26%] left-[6%] md:left-[16%] text-7xl md:text-8xl font-black text-[#ED4CA5]/[0.08] leading-none select-none">“</span>
+        <span class="absolute bottom-[16%] right-[6%] md:right-[16%] text-7xl md:text-8xl font-black text-[#ED4CA5]/[0.08] leading-none select-none">”</span>
       </div>
       <div class="max-w-3xl mx-auto text-center relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] tracking-wider relative z-10 leading-relaxed">
-            <span class="marker-pink">Building the habit, step by step</span>
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">PHILOSOPHY</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
+            <span class="marker-pink">Keeping a record shouldn't<br class="md:hidden" /> take so much effort.</span>
           </h2>
         </div>
-        <div class="space-y-8 text-xl md:text-2xl text-[#757575] leading-loose font-medium pt-12">
-          <p>We live in an age where AI can write for us.</p>
-          <p>But what to write,<br />depends entirely on your own experiences.</p>
-          <p>That's why noting down<br />even small things matters.</p>
-          <p class="text-2xl md:text-3xl font-bold text-[#4A4A4A] pt-8 leading-relaxed">
-            We hope "Money Memo" becomes<br />your gateway to the habit of recording.
+        <div class="space-y-8 text-lg md:text-xl text-[#857E74] leading-loose font-medium pt-12">
+          <p>Logging every expense.<br />Sorting categories.<br />Balancing to the last cent.</p>
+          <p>If you can do all that,<br class="md:hidden" /> there are more powerful apps out there.</p>
+          <p class="text-xl md:text-2xl font-bold text-[#4A4A4A] pt-6 leading-relaxed">
+            Money Memo is for the people<br />who found that too much to keep up with —<br />so we lowered the bar for recording<br class="md:hidden" /> as far as we could.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ⑥ 楽しさ -->
-    <section class="py-24 px-6 relative bg-white">
+    <!-- ⑥ Fun -->
+    <section class="py-20 md:py-28 px-6 relative bg-white">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[10%] left-[5%] w-80 h-80 bg-dots-pink opacity-30 -rotate-12 animate-[float_13s_ease-in-out_infinite_reverse]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">05</span>
+        <div class="absolute bottom-[6%] left-[-8%] w-[300px] h-[300px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-5xl mx-auto space-y-16 relative z-10">
-        
-        <div class="flex flex-col justify-center items-center gap-6 text-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] relative z-10 leading-relaxed">
+      <div class="max-w-5xl mx-auto space-y-14 relative z-10">
+
+        <div class="flex flex-col justify-center items-center gap-5 text-center">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FUN</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
             <span class="marker-pink">A little bit of fun to keep you going.</span>
           </h2>
-          <img src="/images/piggy_bank.png" alt="Piggy Bank" class="w-24 h-24 md:w-28 md:h-28 mt-4 animate-[float_6s_ease-in-out_infinite]" />
+          <img src="/images/piggy_bank.png" alt="Piggy Bank" class="w-20 h-20 md:w-24 md:h-24 mt-4" />
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/proverb.webp" alt="Proverb Screen" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">Money Proverbs</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">Money Proverbs</h3>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/milestone_fun.webp" alt="Milestone Effect" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">Streak Milestones</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">Streak Milestones</h3>
+            </div>
+            <p class="text-sm md:text-base text-[#857E74] font-medium leading-relaxed">
+              On milestone days, the little character celebrates right along with you.
+            </p>
           </div>
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/stats.webp" alt="Stats Screen" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">Monthly & Yearly Stats</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">Monthly & Yearly Stats</h3>
+            </div>
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4 text-lg font-medium text-[#757575]">
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">Dark Mode</span>
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">Japanese & English</span>
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">Multi-Currency (Dollar, Euro, etc.)</span>
+        <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base font-medium text-[#857E74]">
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Dark Mode</span>
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Japanese & English</span>
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>Multi-Currency (Dollar, Euro, etc.)</span>
         </div>
 
-        <div class="text-center pt-8">
-          <p class="text-2xl font-bold text-[#ED4CA5] leading-relaxed">
-            Keep inputs simple,<br />but make it genuinely fun.
+        <div class="text-center pt-4">
+          <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+            The fun isn't just decoration —<br />it's a little helper that keeps you going.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ⑦ 開発ストーリー -->
-    <section class="py-24 px-6 relative bg-[#FFFBF0]">
+    <!-- ⑦ Our Story -->
+    <section class="py-20 md:py-28 px-6 relative bg-[#FFFBF0]">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[5%] w-64 h-64 bg-dots-green opacity-40 -rotate-12 animate-[float_10s_ease-in-out_infinite]"></div>
+        <div class="absolute top-[10%] left-[-8%] w-[300px] h-[300px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
       <div class="max-w-4xl mx-auto relative z-10">
-        <div class="bg-white rounded-[3rem] p-10 md:p-16 relative shadow-sm border border-[#FFF2D9]">
-          <div class="absolute -top-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 bg-white px-8 py-3 rounded-full shadow-sm border border-gray-100 font-bold text-[#ED4CA5] text-lg uppercase tracking-wider">
+        <div class="bg-white rounded-[2.5rem] p-10 md:p-16 relative border border-[#F0EBDD] shadow-warm">
+          <!-- Inner dashed frame -->
+          <div class="absolute inset-3 rounded-[2rem] border border-dashed border-[#ED4CA5]/20 pointer-events-none"></div>
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 bg-[#FFFBF0] px-7 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm font-bold text-[#ED4CA5] text-sm tracking-[0.2em] uppercase">
             Our Story
           </div>
-          <div class="space-y-8 text-lg md:text-xl text-[#4A4A4A] leading-loose font-medium pt-6">
-            <p>It started with my child's pocket money book.</p>
-            <p>But forgetting to record made the balance off. Even saying 'rough estimates are fine', the discrepancy itself became stressful.</p>
-            <p>That's why Money Memo focuses on 'continuing'.</p>
-            <p>Rather than managing perfectly, start by building the recording habit.<br />Instead of overcoming weakness with sheer effort, we made it a form you can continue.</p>
-            <p class="text-2xl font-bold pt-4 text-center md:text-left leading-relaxed">
-              That is why<br class="md:hidden" /> "Money Memo" was born.
+          <div class="space-y-8 text-base md:text-lg text-[#4A4A4A] leading-loose font-medium pt-6 relative">
+            <p>Money Memo started as an allowance log I made for my child.</p>
+            <p>With a paper notebook, the notebook itself kept getting lost. And whenever a purchase went unrecorded, the balance never matched. Even saying "close enough is fine" didn't help — the mismatch itself was stressful. So I decided to lower the bar for recording instead.</p>
+            <p>While building the app, I realized something: adults stumble in exactly the same places.</p>
+            <p>It feels like a chore.<br />We forget.<br />And once the numbers stop matching, we quit.</p>
+            <p class="text-xl md:text-2xl font-bold pt-4 text-center md:text-left leading-relaxed">
+              That's why Money Memo is built as<br class="md:hidden" /> a money log you can actually keep —<br />for kids and adults alike.
             </p>
           </div>
           <div class="mt-12 flex justify-center md:absolute md:bottom-8 md:right-8 md:mt-0">
-            <img src="/images/wizpiggy2x.webp" alt="Wizard Pig" class="w-24 h-24 md:w-36 md:h-36 opacity-80 hover:-translate-y-2 transition-transform duration-300" />
+            <img src="/images/wizpiggy2x.webp" alt="Wizard Pig" class="w-20 h-20 md:w-28 md:h-28 opacity-80 hover:-translate-y-2 transition-transform duration-300" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ⑧ CTA -->
-    <section class="pt-32 pb-24 px-6 relative bg-white">
+    <!-- ⑧ FAQ -->
+    <section class="py-20 md:py-28 px-6 bg-white relative z-10">
+      <!-- Background decorations -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[0%] left-[10%] w-[500px] h-[500px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[15%] right-[5%] w-80 h-80 bg-dots-pink opacity-40 rotate-6 animate-[float_14s_ease-in-out_infinite_reverse]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">06</span>
       </div>
 
-      <div class="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-2xl md:text-4xl font-bold text-[#4A4A4A] leading-relaxed">
+      <div class="max-w-3xl mx-auto space-y-12 relative z-10">
+        <div class="text-center space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FAQ</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A]">
+            <span class="marker-yellow">Frequently Asked Questions</span>
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Is it free?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              Yes. Money Memo is completely free and has no ads.
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Is it only for kids?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              No. It started as an allowance log for a child, but it is also designed for adults who have struggled to keep using budgeting apps.
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Can I use it as a budgeting app?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              Yes, but it is not a detailed budgeting app. It is best for casually recording the expenses you care about.
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Can it track my balance?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              No. Money Memo does not show a balance. It focuses on recording what you spent, so a small mismatch does not stop you from continuing.
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Can I use categories?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              No. There are no categories. The goal is to make logging quick, simple, and low-friction.
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> Does it connect to banks or credit cards?
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              No. There is no automatic bank or credit card connection. Instead, you can record expenses manually in your own words.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ CTA -->
+    <section class="pt-24 pb-28 md:pt-28 md:pb-32 px-6 relative bg-[#FFFBF0]">
+      <!-- Background decorations -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute inset-0 bg-grid-warm opacity-50"></div>
+        <div class="absolute bottom-[-20%] left-[10%] w-[450px] h-[450px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-[10%] right-[-6%] w-[300px] h-[300px] border border-[#ED4CA5]/12 rounded-full"></div>
+        <div class="absolute top-[16%] right-[-2%] w-[200px] h-[200px] border border-[#E8B94F]/18 rounded-full"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto text-center space-y-10 relative z-10">
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">DOWNLOAD</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
             <span class="marker-pink">Try recording just one thing<br class="md:hidden" /> to start.</span>
           </h2>
         </div>
-        <p class="text-xl md:text-2xl text-[#ED4CA5] font-bold">
+        <p class="text-lg md:text-xl text-[#ED4CA5] font-bold">
           Start by letting go of<br class="md:hidden" /> "managing everything".
         </p>
-        
-        <div class="flex flex-wrap items-center justify-center gap-6 pt-8">
+
+        <div class="flex flex-wrap items-center justify-center gap-5 pt-6">
           <!-- App Store -->
           <a href="https://apps.apple.com/us/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020?itscg=30200&itsct=apps_box_badge&mttnsubad=6767521020" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1779148800" alt="Download on the App Store" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1779148800" alt="Download on the App Store" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
           </a>
           <!-- Google Play (Coming Soon) -->
-          <div class="inline-flex items-center bg-[#0a0a0a] text-white rounded-xl px-4 py-2 border border-gray-800 opacity-60 cursor-not-allowed select-none transition-all duration-300" style="width: 224px; height: 82px; justify-content: center; gap: 10px;">
+          <div class="inline-flex items-center bg-[#0a0a0a] text-white rounded-xl px-4 py-2 border border-gray-800 opacity-60 cursor-not-allowed select-none transition-all duration-300" style="width: 200px; height: 74px; justify-content: center; gap: 10px;">
             <svg class="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
               <path d="M5,3.5C5,3.2 5.2,3 5.5,3C5.7,3 5.9,3.1 6,3.2L19.5,11.2C20.1,11.5 20.1,12.5 19.5,12.8L6,20.8C5.9,20.9 5.7,21 5.5,21C5.2,21 5,20.8 5,20.5V3.5M7,6V18L14.5,12L7,6Z" />
             </svg>
@@ -395,63 +564,9 @@ const OTHER_COLOR = '#FFF2D9';
             </div>
           </div>
         </div>
-        
-        <div class="flex justify-center pt-8">
-          <img src="/images/basic2x.webp" alt="Pig Character" class="w-28 h-28 md:w-32 md:h-32 drop-shadow-md hover:-translate-y-2 transition-transform duration-300" />
-        </div>
-      </div>
-    </section>
 
-    <!-- ⑨ FAQ -->
-    <section class="py-24 px-6 bg-[#FFFBF0] relative z-10">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[10%] right-[10%] w-[300px] h-[300px] bg-[#FFE2E2] rounded-[50%_50%_30%_70%/50%_70%_30%_50%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[10%] left-[5%] w-64 h-64 bg-dots-gray opacity-30 rotate-12 animate-[float_10s_ease-in-out_infinite]"></div>
-      </div>
-
-      <div class="max-w-3xl mx-auto space-y-12 relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-center text-[#4A4A4A] relative z-10">
-            <span class="marker-yellow">FAQ</span>
-          </h2>
-        </div>
-        
-        <div class="space-y-6">
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
-              <span class="text-[#ED4CA5]">Q.</span> Is it completely free?
-            </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              Yes, it is completely free.<br />There are no ads, making it safe even for teens.
-            </p>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
-              <span class="text-[#ED4CA5]">Q.</span> Is it only for kids?
-            </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              Adults can use it too!
-            </p>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
-              <span class="text-[#ED4CA5]">Q.</span> Can I use it as a budget tracker?
-            </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              We highly recommend using it to "track specific parts" of your expenses.
-            </p>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
-              <span class="text-[#ED4CA5]">Q.</span> Is there automatic bank syncing?
-            </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              No.<br />Instead, you can record in your own words.
-            </p>
-          </div>
+        <div class="flex justify-center pt-6">
+          <img src="/images/basic2x.webp" alt="Pig Character" class="w-24 h-24 md:w-28 md:h-28 drop-shadow-sm hover:-translate-y-2 transition-transform duration-300" />
         </div>
       </div>
     </section>
@@ -468,36 +583,73 @@ const OTHER_COLOR = '#FFF2D9';
     font-family: 'Zen Maru Gothic', sans-serif;
   }
 
-  .bg-dots-gray {
-    background-image: radial-gradient(#e2e8f0 3px, transparent 3px);
-    background-size: 32px 32px;
+  /* Background + shifted outline heading design */
+  .marker-pink,
+  .marker-green,
+  .marker-yellow {
+    position: relative;
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    border-radius: 4px;
   }
-  .bg-dots-pink {
-    background-image: radial-gradient(#FBCFE8 3px, transparent 3px);
-    background-size: 32px 32px;
+  .marker-pink::before,
+  .marker-green::before,
+  .marker-yellow::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: 4px;
+    pointer-events: none;
+    margin: unset;
   }
-  .bg-dots-green {
-    background-image: radial-gradient(#bbf7d0 3px, transparent 3px);
-    background-size: 32px 32px;
-  }
-
-  /* 複数行対応の蛍光ペンマーカー */
   .marker-pink {
-    background: linear-gradient(transparent 60%, rgba(255, 226, 226, 0.9) 60%);
-    display: inline;
+    background: rgba(255, 231, 243, 0.9);
+  }
+  .marker-pink::before {
+    border-color: rgba(237, 76, 165, 0.5);
   }
   .marker-green {
-    background: linear-gradient(transparent 60%, rgba(219, 252, 231, 0.9) 60%);
-    display: inline;
+    background: rgba(226, 245, 234, 0.9);
+  }
+  .marker-green::before {
+    border-color: rgba(76, 175, 125, 0.5);
   }
   .marker-yellow {
-    background: linear-gradient(transparent 60%, rgba(255, 242, 217, 0.9) 60%);
-    display: inline;
+    background: rgba(255, 241, 214, 0.9);
+  }
+  .marker-yellow::before {
+    border-color: rgba(232, 185, 79, 0.6);
+  }
+
+  /* Very faint grid pattern */
+  .bg-grid-warm {
+    background-image:
+      linear-gradient(rgba(74, 74, 74, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 74, 74, 0.045) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Ghost section numbers */
+  .ghost-num {
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(237, 76, 165, 0.07);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Warm soft shadow */
+  .shadow-warm {
+    box-shadow: 0 10px 30px -14px rgba(120, 90, 60, 0.25);
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
   }
 
   .animate-float {

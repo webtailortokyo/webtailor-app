@@ -16,11 +16,15 @@ const t = useTranslations(lang);
   
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="relative py-48 px-4 overflow-hidden min-h-[70vh] flex items-center">
+    <section class="relative py-36 md:py-48 px-4 overflow-hidden min-h-[70vh] flex items-center">
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
         <img src="/images/hero-bg.webp" alt="Background" class="w-full h-full object-cover" />
       </div>
+      <div class="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_28%,rgba(255,255,255,0.78),rgba(255,255,255,0.34)_42%,rgba(255,255,255,0.1)_68%)]"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-x-6 top-8 bottom-8 z-[3] hidden rounded-[2rem] border border-white/55 shadow-[inset_0_0_40px_rgba(255,255,255,0.45)] md:block"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute left-[7%] top-[26%] z-[4] hidden h-28 w-28 rotate-[-10deg] rounded-3xl border border-white/70 shadow-[0_20px_60px_rgba(53,133,199,0.18)] backdrop-blur-[2px] md:block"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute right-[9%] top-[58%] z-[4] hidden h-56 w-56 rotate-[12deg] rounded-[3rem] border border-white/70 shadow-[0_20px_60px_rgba(53,133,199,0.2)] backdrop-blur-[2px] md:block"></div>
 
       <div class="relative z-10 max-w-5xl mx-auto text-center">
         <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">

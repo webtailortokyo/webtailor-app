@@ -9,179 +9,204 @@ const TEXT_COLOR = '#4A4A4A';
 const OTHER_COLOR = '#FFF2D9';
 ---
 
-<Layout title="おかねメモ - 続かない人のためのお金メモ" description="おこづかい帳にも、ランチ代や趣味の記録にも。まずは記録を続けることを大切にした、やさしいお金メモアプリです。" ogImage="/images/ogp-moneymemo.png">
+<Layout title="おかねメモ - 家計簿をやめた人のためのお金メモ" description="項目と金額だけ。残高合わせもカテゴリ分けもがんばらなくていい、気軽なお金の記録アプリです。家計簿が続かなかった人にも、おこづかい帳にも。" ogImage="/images/ogp-moneymemo.png">
   <Header />
 
   <main class="bg-[#FFFBF0] text-[#4A4A4A] overflow-hidden zen-maru selection:bg-[#ED4CA5] selection:text-white">
-    
+
     <!-- ① ファーストビュー -->
-    <section class="relative pt-8 pb-12 md:pt-12 md:pb-16 px-6 bg-[#FFFBF0]">
+    <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 px-6 bg-[#FFFBF0]">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#FFE2E2] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl opacity-50"></div>
-        <div class="absolute top-[20%] right-[-5%] w-[500px] h-[400px] bg-[#DBFCE7] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] blur-3xl opacity-50"></div>
-        <div class="absolute top-[60%] left-[20%] w-[300px] h-[300px] bg-[#FFF2D9] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] blur-3xl opacity-60"></div>
-        <!-- ドット装飾 (中央上・右下) -->
-        <div class="absolute top-[5%] left-[45%] md:left-[55%] -translate-x-1/2 w-64 h-64 bg-dots-pink opacity-50 -rotate-12 animate-[float_8s_ease-in-out_infinite]"></div>
-        <div class="absolute bottom-[5%] right-[5%] w-72 h-72 bg-dots-green opacity-50 rotate-6 animate-[float_10s_ease-in-out_infinite_reverse]"></div>
+        <div class="absolute inset-0 bg-grid-warm opacity-50"></div>
+        <div class="absolute top-[-15%] right-[-10%] w-[500px] h-[500px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-[#FFE9F4] rounded-full blur-3xl opacity-40"></div>
+        <!-- 細い輪郭サークル -->
+        <div class="absolute top-[8%] right-[6%] w-[380px] h-[380px] border border-[#ED4CA5]/15 rounded-full"></div>
+        <div class="absolute top-[14%] right-[10%] w-[300px] h-[300px] border border-[#E8B94F]/20 rounded-full"></div>
+        <div class="absolute bottom-[-6%] left-[4%] w-[220px] h-[220px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 relative z-10">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 relative z-10">
         <!-- 左テキストエリア -->
-        <div class="flex-1 space-y-8 text-center w-full flex flex-col items-center">
-          <div class="space-y-4 flex flex-col items-center">
-            <!-- 続かない人のための -->
-            <div class="flex flex-col items-center space-y-2">
-              <p class="text-2xl md:text-3xl font-bold tracking-widest text-[#4A4A4A]">
-                続かない<span class="text-[#ED4CA5]">人</span>のための
-              </p>
-              <svg width="240" height="20" viewBox="0 0 240 20" fill="none" class="hidden md:block">
-                <path d="M10,0 C80,0 110,0 120,18 C130,0 160,0 230,0" stroke="#ED4CA5" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </svg>
-              <svg width="180" height="15" viewBox="0 0 180 15" fill="none" class="md:hidden">
-                <path d="M0,0 C60,0 85,0 90,14 C95,0 120,0 180,0" stroke="#ED4CA5" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            
+        <div class="flex-1 space-y-8 text-center md:text-left w-full flex flex-col items-center md:items-start">
+          <div class="space-y-5 flex flex-col items-center md:items-start">
+            <!-- キャッチコピー -->
+            <p class="text-xl md:text-2xl font-bold tracking-wide leading-relaxed text-[#4A4A4A]">
+              家計簿をやめた人のための、<br class="md:hidden" /><span class="text-[#ED4CA5]">お金メモ</span>
+            </p>
+
             <!-- タイトル -->
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-widest pt-2">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-widest pt-2">
               <span class="text-[#ED4CA5]">おかね</span><span class="text-[#4A4A4A]">メモ</span>
             </h1>
           </div>
 
           <!-- サブコピー -->
-          <div class="space-y-6 pt-2 text-center">
-            <p class="text-xl md:text-2xl leading-loose text-[#4A4A4A] font-bold tracking-wide">
-              おこづかい帳にも、<br />ランチ代や趣味の記録にも。
+          <div class="space-y-5 pt-2">
+            <p class="text-lg md:text-xl leading-relaxed text-[#ED4CA5] font-bold tracking-wide">
+              がんばらないから、続く。
             </p>
-            <p class="text-base md:text-lg leading-relaxed text-[#757575] font-medium tracking-wide">
-              シンプルだから続けやすい、<br />自分のペースで使えるお金メモアプリです。
+            <p class="text-base md:text-lg leading-loose text-[#857E74] font-medium tracking-wide">
+              項目と金額だけ。<br />残高合わせも、カテゴリ分けもがんばらなくていい、<br class="hidden lg:block" />気軽なお金の記録アプリです。
             </p>
           </div>
 
           <!-- ダウンロードバッジ -->
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-6">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
             <!-- App Store -->
             <a href="https://apps.apple.com/jp/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?releaseDate=1779148800" alt="App Storeでダウンロード" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
+              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?releaseDate=1779148800" alt="App Storeでダウンロード" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
             </a>
             <!-- Google Play -->
             <a href="https://play.google.com/store/apps/details?id=work.webtailor.moneymemo" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-              <img src="/images/GetItOnGooglePlay_Badge_Web_color_Japanese.svg" alt="Google Play で手に入れよう" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
+              <img src="/images/GetItOnGooglePlay_Badge_Web_color_Japanese.svg" alt="Google Play で手に入れよう" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
             </a>
           </div>
         </div>
 
         <!-- 右画像エリア -->
         <div class="flex-1 relative flex justify-center w-full mt-8 md:mt-0">
-          <div class="relative w-[220px] md:w-[260px] lg:w-[280px]">
+          <div class="relative w-[220px] md:w-[250px] lg:w-[270px]">
+            <div class="absolute -inset-7 z-0 rounded-[3rem] border border-dashed border-[#ED4CA5]/20 bg-white/20 rotate-3"></div>
+            <div class="absolute -left-12 top-12 z-0 hidden h-24 w-24 rounded-full border border-[#E8B94F]/30 bg-[#FFF2D9]/30 md:block"></div>
             <!-- スマホモックアップ風 -->
-            <div class="bg-black p-2 md:p-2.5 rounded-[2.5rem] shadow-2xl relative">
+            <div class="bg-black p-2 md:p-2.5 rounded-[2.5rem] shadow-xl relative z-10">
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-3xl z-20"></div> <!-- ノッチ -->
               <img src="/images/fv_screenshot.webp" alt="おかねメモ アプリ画面" class="w-full h-auto rounded-[2rem] border border-gray-200" />
             </div>
             <!-- basic2x.webp ブタキャラクター -->
-            <img src="/images/basic2x.webp" alt="ブタのキャラクター" class="w-28 h-28 md:w-36 md:h-36 absolute -bottom-4 -right-10 md:-right-16 animate-[float_6s_ease-in-out_infinite]" />
+            <img src="/images/basic2x.webp" alt="ブタのキャラクター" class="w-24 h-24 md:w-28 md:h-28 absolute -bottom-4 -right-8 md:-right-12 z-20 animate-[float_6s_ease-in-out_infinite]" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- ② 共感セクション -->
-    <section class="py-24 px-6 relative bg-white">
+    <section class="py-20 md:py-28 px-6 relative bg-white">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[-5%] w-[450px] h-[450px] bg-[#FFF2D9] rounded-[50%_50%_30%_70%/50%_70%_30%_50%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[10%] right-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-12 animate-[float_12s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">01</span>
+        <div class="absolute bottom-[10%] right-[-6%] w-[280px] h-[280px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
       <div class="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-        
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold leading-relaxed text-[#4A4A4A] relative z-10">
-            <span class="marker-pink">家計簿、<br class="md:hidden" />こんな風になっていませんか？</span>
+
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">REASON</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold leading-relaxed text-[#4A4A4A]">
+            <span class="marker-pink">家計簿が続かなかった理由は<br class="md:hidden" />あなたのせいじゃありません。</span>
           </h2>
         </div>
-        
-        <!-- タイトルの直下にキャラクター配置 (1.3倍ほど大きく) -->
+
+        <!-- キャラクター -->
         <div class="flex justify-center -mt-4">
-          <img src="/images/question2x.webp" alt="はてなブタ" class="w-24 h-24 md:w-28 md:h-28 opacity-80" />
+          <img src="/images/question2x.webp" alt="はてなブタ" class="w-20 h-20 md:w-24 md:h-24 opacity-80" />
         </div>
-        
-        <!-- ホバーアニメーション削除 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 pt-4">
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">最初だけ頑張る</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 pt-2 text-left">
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">01</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">最初だけ頑張る</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">カテゴリ分けが面倒</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">02</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">カテゴリ分けが面倒</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">1円ズレるとイヤになる</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">03</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">1円ズレるとイヤになる</p>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] p-8 rounded-3xl shadow-sm border border-gray-50">
-            <p class="text-xl font-bold text-[#4A4A4A]">気づくとアプリを開かなくなる</p>
+          <div class="bg-[#FFFBF0] p-6 md:p-7 rounded-2xl border border-[#F0EBDD] shadow-warm relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+            <div class="flex items-center gap-4 relative z-10">
+              <span class="w-9 h-9 rounded-full bg-[#FFE9F4] border border-[#ED4CA5]/25 text-[#ED4CA5] flex items-center justify-center font-bold text-sm shrink-0">04</span>
+              <p class="text-base md:text-lg font-bold text-[#4A4A4A]">気づくとアプリを開かなくなる</p>
+            </div>
           </div>
         </div>
 
-        <div class="pt-8 relative inline-block">
-          <p class="text-2xl md:text-3xl font-bold text-[#ED4CA5] leading-relaxed">
-            だから、<br class="md:hidden" />「ちゃんと管理する」を減らしました。
+        <div class="pt-6 relative inline-block">
+          <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+            だから<br class="md:hidden" />「ちゃんと管理する」を減らしました。
           </p>
         </div>
       </div>
     </section>
 
     <!-- ③ おかねメモの特徴 -->
-    <section class="py-24 px-6 relative bg-[#FFFBF0]">
+    <section class="py-20 md:py-28 px-6 relative bg-[#FFFBF0]">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[0%] right-[5%] w-[400px] h-[400px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[10%] right-[5%] w-64 h-64 bg-dots-pink opacity-40 -rotate-6 animate-[float_9s_ease-in-out_infinite_reverse]"></div>
-        <div class="absolute bottom-[10%] left-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-12 animate-[float_11s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">02</span>
+        <div class="absolute bottom-[-10%] right-[8%] w-[360px] h-[360px] border border-[#ED4CA5]/10 rounded-full"></div>
+        <div class="absolute bottom-[-4%] right-[14%] w-[260px] h-[260px] border border-[#E8B94F]/15 rounded-full"></div>
       </div>
 
       <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
         <div class="flex-1 space-y-10 order-2 md:order-1">
-          <div class="flex md:block justify-center text-center md:text-left">
-             <h2 class="text-3xl md:text-4xl font-bold leading-relaxed text-[#4A4A4A] relative z-10">
-               <span class="marker-yellow">おかねメモは、<br />「続けやすさ」を大事にした<br />シンプルなお金メモです。</span>
+          <div class="space-y-5 text-center md:text-left">
+             <div class="flex items-center justify-center md:justify-start gap-3">
+               <span class="w-10 h-px bg-[#ED4CA5]/40 md:hidden"></span>
+               <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+               <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FEATURES</p>
+               <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+               <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+             </div>
+             <h2 class="text-2xl md:text-3xl font-bold leading-relaxed text-[#4A4A4A]">
+               <span class="marker-yellow">おかねメモは<br />「続けやすさ」を大事にした<br />シンプルなお金メモです。</span>
              </h2>
           </div>
-          <!-- 元の白背景デザインに戻す -->
-          <ul class="space-y-6 text-xl text-[#4A4A4A] font-medium">
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> 入力は「項目」と「金額」だけ
+          <ul class="space-y-4 text-base md:text-lg text-[#4A4A4A] font-medium">
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              入力は「項目」と「金額」だけ
             </li>
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> お金を入れないメモだけの記録もOK
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              お金を入れない、メモだけの記録もOK
             </li>
-            <li class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-50">
-              <span class="text-[#ED4CA5] text-2xl">●</span> また開きたくなる工夫も
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              残高表示なし。1円ズレても気にしなくていい
+            </li>
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              カテゴリ分けなし。迷わずすぐ記録できる
+            </li>
+            <li class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/60 shadow-warm">
+              続けるための、ちょっとした楽しさも
             </li>
           </ul>
-          <div class="text-center md:text-left pt-4">
-            <p class="text-2xl font-bold text-[#ED4CA5] leading-relaxed">
-              「ちゃんと管理する」より、<br />まずは続けることを大切にしました。
+          <div class="text-center md:text-left pt-2">
+            <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+              「ちゃんと管理する」より<br />まずは続けることを大切にしました。
             </p>
           </div>
         </div>
         <div class="flex-1 order-1 md:order-2 flex justify-center items-center w-full relative min-h-[350px] md:min-h-[450px]">
           <!-- Card 1: Simple Input -->
-          <div class="absolute z-10 transform -rotate-6 -translate-x-12 -translate-y-12 hover:z-40 hover:scale-105 hover:-rotate-2 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-48 md:w-64">
+          <div class="absolute z-10 transform -rotate-3 -translate-x-12 -translate-y-12 hover:z-40 hover:scale-105 hover:-rotate-1 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-48 md:w-64">
                 <img src="/images/simple_input.webp" alt="入力はシンプル" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
           <!-- Card 2: Only Memo -->
-          <div class="absolute z-20 transform rotate-3 translate-x-12 -translate-y-4 hover:z-40 hover:scale-105 hover:rotate-1 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-44 md:w-56">
+          <div class="absolute z-20 transform rotate-2 translate-x-12 -translate-y-4 hover:z-40 hover:scale-105 hover:rotate-1 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-44 md:w-56">
                 <img src="/images/only_memo.webp" alt="メモだけの記録" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
           <!-- Card 3: Milestone -->
-          <div class="absolute z-30 transform -rotate-3 -translate-x-4 translate-y-24 md:translate-y-28 hover:z-40 hover:scale-105 hover:rotate-0 transition-all duration-300">
-             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-xl border border-gray-100 w-52 md:w-64">
+          <div class="absolute z-30 transform -rotate-2 -translate-x-4 translate-y-24 md:translate-y-28 hover:z-40 hover:scale-105 hover:rotate-0 transition-all duration-300">
+             <div class="bg-white p-2 md:p-3 rounded-3xl shadow-lg border border-[#F0EBDD] w-52 md:w-64">
                 <img src="/images/milestone.webp" alt="続けたくなる工夫" class="w-full h-auto rounded-2xl" />
              </div>
           </div>
@@ -190,269 +215,342 @@ const OTHER_COLOR = '#FFF2D9';
     </section>
 
     <!-- ④ 用途提案 -->
-    <section class="py-24 px-6 relative bg-white">
+    <section class="py-20 md:py-28 px-6 relative bg-white">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-[#FFE2E2] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[5%] right-[5%] w-64 h-64 bg-dots-green opacity-40 rotate-12 animate-[float_11s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">03</span>
+        <div class="absolute top-[15%] right-[-8%] w-[320px] h-[320px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-5xl mx-auto space-y-16 relative z-10">
-        <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] relative z-10 leading-relaxed">
+      <div class="max-w-5xl mx-auto space-y-14 relative z-10">
+        <div class="text-center space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">USE CASES</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
             <span class="marker-pink">こんな使い方ができます</span>
           </h2>
+          <p class="text-base md:text-lg text-[#857E74] font-medium pt-2">
+            気になる出費の記録にも、おこづかい帳にも。
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          
-          <!-- 4-1 おこづかい帳として -->
-          <div class="bg-[#FFFBF0] rounded-[2.5rem] p-10 md:p-14 space-y-8 shadow-sm relative overflow-hidden group border border-gray-100">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#DBFCE7] to-transparent opacity-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+
+          <!-- 4-1 気になる出費の記録に -->
+          <div class="bg-[#FFFBF0] rounded-[2rem] p-9 md:p-12 space-y-8 border border-[#F0EBDD] border-t-4 border-t-[#ED4CA5]/50 shadow-warm relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-36 h-36 border border-[#ED4CA5]/15 rounded-full pointer-events-none"></div>
+            <div class="absolute -top-4 -right-4 w-20 h-20 border border-[#ED4CA5]/10 rounded-full pointer-events-none"></div>
             <div class="text-center md:text-left">
-              <h3 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] relative z-10">
+              <h3 class="text-xl md:text-2xl font-bold text-[#4A4A4A] relative z-10">
+                <span class="marker-pink">気になる出費の記録に</span>
+              </h3>
+            </div>
+            <ul class="flex flex-wrap justify-center md:justify-start gap-3 text-sm md:text-base text-[#4A4A4A] font-medium relative z-10">
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>ランチ代</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>推し活</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>趣味</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>サブスク</li>
+              <li class="bg-white px-5 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>カフェ代</li>
+            </ul>
+            <div class="space-y-3 text-lg md:text-xl font-bold text-[#4A4A4A] pt-2 text-center md:text-left leading-relaxed relative z-10">
+              <p>全部を管理しなくてもOK。</p>
+              <p>気になる出費だけを、<br />気軽に記録できます。</p>
+            </div>
+          </div>
+
+          <!-- 4-2 おこづかい帳として -->
+          <div class="bg-[#FFFBF0] rounded-[2rem] p-9 md:p-12 space-y-8 border border-[#F0EBDD] border-t-4 border-t-[#4CAF7D]/50 shadow-warm relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-36 h-36 border border-[#4CAF7D]/15 rounded-full pointer-events-none"></div>
+            <div class="absolute -top-4 -right-4 w-20 h-20 border border-[#4CAF7D]/10 rounded-full pointer-events-none"></div>
+            <div class="text-center md:text-left">
+              <h3 class="text-xl md:text-2xl font-bold text-[#4A4A4A] relative z-10">
                 <span class="marker-green">おこづかい帳として</span>
               </h3>
             </div>
-            <ul class="space-y-4 text-lg text-[#4A4A4A] font-medium relative z-10">
+            <ul class="space-y-4 text-base md:text-lg text-[#4A4A4A] font-medium relative z-10">
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
                 スマホだから、買った時にすぐ記録できる
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
-                紙みたいに失くす心配がない
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
+                紙のおこづかい帳みたいに失くさない
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-[#05DF72] mt-1 text-xl">✓</span>
+                <span class="w-5 h-5 rounded-full bg-[#E5F5EC] border border-[#4CAF7D]/30 text-[#4CAF7D] flex items-center justify-center text-xs mt-1 shrink-0">✓</span>
                 「項目」と「金額」だけだから続けやすい
               </li>
             </ul>
-            <p class="text-xl font-bold text-[#4A4A4A] pt-4 relative z-10 text-center md:text-left leading-relaxed">
-              完璧じゃなくても、<br />まずは記録することを大切にしました。
+            <p class="text-lg md:text-xl font-bold text-[#4A4A4A] pt-2 text-center md:text-left leading-relaxed relative z-10">
+              完璧な残高合わせより、<br />まず記録すること。<br />親からもすすめやすい、<br class="md:hidden" />シンプルなおこづかい帳です。
             </p>
-          </div>
-
-          <!-- 4-2 気になる出費の記録にも -->
-          <div class="bg-[#FFFBF0] rounded-[2.5rem] p-10 md:p-14 space-y-8 shadow-sm relative overflow-hidden group border border-gray-100">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#FFE2E2] to-transparent opacity-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-            <div class="text-center md:text-left">
-              <h3 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] relative z-10">
-                <span class="marker-pink">気になる出費の記録にも</span>
-              </h3>
-            </div>
-            <ul class="grid grid-cols-2 gap-4 text-base md:text-lg text-[#4A4A4A] font-medium relative z-10">
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">平日のランチ代</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">推し活のお金</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">趣味の出費</li>
-              <li class="bg-white px-4 py-3 rounded-xl shadow-sm text-center border border-gray-50">サブスク管理</li>
-            </ul>
-            <div class="space-y-4 text-xl font-bold text-[#4A4A4A] pt-4 relative z-10 text-center md:text-left">
-              <p>「なんとなく使いすぎてるかも」</p>
-              <p>そんな出費だけを、<br />気軽に記録できます。</p>
-              <p>全部を管理しなくてもOKです。</p>
-            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ⑤ 記録する習慣を、少しずつ -->
-    <section class="py-32 px-6 relative bg-[#FFFBF0]">
+    <!-- ⑤ がんばりすぎない -->
+    <section class="py-24 md:py-32 px-6 relative bg-[#FFFBF0]">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#FFE2E2] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl opacity-30"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[450px] h-[450px] bg-[#DBFCE7] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[5%] left-[5%] w-64 h-64 bg-dots-gray opacity-40 rotate-6 animate-[float_10s_ease-in-out_infinite]"></div>
-        <div class="absolute bottom-[5%] right-[5%] w-64 h-64 bg-dots-pink opacity-40 -rotate-12 animate-[float_12s_ease-in-out_infinite_reverse]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">04</span>
+        <div class="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[8%] left-[-6%] w-[280px] h-[280px] border border-[#ED4CA5]/10 rounded-full"></div>
+        <!-- 引用符の装飾 -->
+        <span class="absolute top-[26%] left-[6%] md:left-[16%] text-7xl md:text-8xl font-black text-[#ED4CA5]/[0.08] leading-none select-none">“</span>
+        <span class="absolute bottom-[16%] right-[6%] md:right-[16%] text-7xl md:text-8xl font-black text-[#ED4CA5]/[0.08] leading-none select-none">”</span>
       </div>
       <div class="max-w-3xl mx-auto text-center relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] tracking-wider relative z-10 leading-relaxed">
-            <span class="marker-pink">記録する習慣を、少しずつ</span>
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">PHILOSOPHY</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
+            <span class="marker-pink">記録を続けるために、<br class="md:hidden" />がんばりすぎない。</span>
           </h2>
         </div>
-        <div class="space-y-8 text-xl md:text-2xl text-[#757575] leading-loose font-medium pt-12">
-          <p>AIで文章は作れる時代。</p>
-          <p>でも、<br />何を書くかは、<br />自分の経験次第です。</p>
-          <p>だから、<br />小さなことでもメモする。</p>
-          <p class="text-2xl md:text-3xl font-bold text-[#4A4A4A] pt-8 leading-relaxed">
-            「おかねメモ」は、<br />記録する習慣の入口に<br class="md:hidden" />なれたらと思っています。
+        <div class="space-y-8 text-lg md:text-xl text-[#857E74] leading-loose font-medium pt-12">
+          <p>毎日きっちり家計簿をつける。<br />カテゴリを分ける。<br />残高を合わせる。</p>
+          <p>それができる人には、<br class="md:hidden" />もっと高機能なアプリがあります。</p>
+          <p class="text-xl md:text-2xl font-bold text-[#4A4A4A] pt-6 leading-relaxed">
+            おかねメモは、<br />「それがめんどくさくて<br class="md:hidden" />続かなかった人」のために、<br />記録のハードルを<br class="md:hidden" />できるだけ下げました。
           </p>
         </div>
       </div>
     </section>
 
     <!-- ⑥ 楽しく続けるための機能 -->
-    <section class="py-24 px-6 relative bg-white">
+    <section class="py-20 md:py-28 px-6 relative bg-white">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[10%] left-[5%] w-80 h-80 bg-dots-pink opacity-30 -rotate-12 animate-[float_13s_ease-in-out_infinite_reverse]"></div>
+        <span class="ghost-num absolute top-8 left-4 md:left-10 text-[5rem] md:text-[8rem]">05</span>
+        <div class="absolute bottom-[6%] left-[-8%] w-[300px] h-[300px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
 
-      <div class="max-w-5xl mx-auto space-y-16 relative z-10">
-        
-        <!-- タイトルとブタさんを縦並びに -->
-        <div class="flex flex-col justify-center items-center gap-6 text-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A] relative z-10 leading-relaxed">
+      <div class="max-w-5xl mx-auto space-y-14 relative z-10">
+
+        <div class="flex flex-col justify-center items-center gap-5 text-center">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FUN</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
             <span class="marker-pink">続けるための、ちょっとした楽しさも。</span>
           </h2>
-          <img src="/images/piggy_bank.png" alt="貯金箱" class="w-24 h-24 md:w-28 md:h-28 mt-4 animate-[float_6s_ease-in-out_infinite]" />
+          <img src="/images/piggy_bank.png" alt="貯金箱" class="w-20 h-20 md:w-24 md:h-24 mt-4" />
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/proverb.webp" alt="ことわざ表示画面" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">お金にまつわることわざ</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">お金にまつわることわざ</h3>
+            </div>
           </div>
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/milestone_fun.webp" alt="マイルストーン演出" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">記録日数のマイルストーン</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">記録日数のマイルストーン</h3>
+            </div>
+            <p class="text-sm md:text-base text-[#857E74] font-medium leading-relaxed">
+              節目の日には、キャラクターが<br class="lg:hidden" />アニメーションで一緒に喜んでくれます。
+            </p>
           </div>
-          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-8 text-center space-y-6 shadow-sm border border-gray-50 hover:-translate-y-1 transition-transform group">
-            <div class="overflow-hidden rounded-2xl border border-gray-100">
+          <div class="bg-[#FFFBF0] rounded-3xl p-6 md:p-7 text-center space-y-5 border border-[#F0EBDD] shadow-warm hover:-translate-y-1 transition-transform duration-300 group">
+            <div class="overflow-hidden rounded-2xl border border-[#F0EBDD]">
               <img src="/images/stats.webp" alt="集計画面" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <h3 class="text-xl font-bold text-[#4A4A4A]">月ごと・年ごとの集計</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="w-1 h-1 rotate-45 bg-[#ED4CA5]/60"></span>
+              <h3 class="text-lg md:text-xl font-bold text-[#4A4A4A]">月ごと・年ごとの集計</h3>
+            </div>
           </div>
         </div>
 
-        <!-- 3つ対応項目 (元の白背景に戻す) -->
-        <div class="flex flex-wrap justify-center gap-4 text-lg font-medium text-[#757575]">
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">ダークモード対応</span>
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">日本語 / English 対応</span>
-          <span class="bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">円 / ドル / ユーロ 対応</span>
+        <!-- 3つ対応項目 -->
+        <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base font-medium text-[#857E74]">
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>ダークモード対応</span>
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>日本語 / English 対応</span>
+          <span class="bg-white px-5 py-2 rounded-full border border-[#F0EBDD] shadow-warm flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-[#ED4CA5]/70"></span>円 / ドル / ユーロ 対応</span>
         </div>
 
-        <div class="text-center pt-8">
-          <p class="text-2xl font-bold text-[#ED4CA5] leading-relaxed">
-            入力はシンプル、<br />でもちゃんと楽しい。
+        <div class="text-center pt-4">
+          <p class="text-xl md:text-2xl font-bold text-[#ED4CA5] leading-relaxed">
+            楽しさは、おまけじゃなくて、<br />続けるための小さな味方です。
           </p>
         </div>
       </div>
     </section>
 
     <!-- ⑦ 開発ストーリー -->
-    <section class="py-24 px-6 relative bg-[#FFFBF0]">
+    <section class="py-20 md:py-28 px-6 relative bg-[#FFFBF0]">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[10%] left-[5%] w-64 h-64 bg-dots-green opacity-40 -rotate-12 animate-[float_10s_ease-in-out_infinite]"></div>
+        <div class="absolute top-[10%] left-[-8%] w-[300px] h-[300px] border border-[#ED4CA5]/10 rounded-full"></div>
       </div>
       <div class="max-w-4xl mx-auto relative z-10">
-        <div class="bg-[#FFFBF0] rounded-[3rem] p-10 md:p-16 relative shadow-sm border border-[#FFF2D9]">
-          <div class="absolute -top-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 bg-white px-8 py-3 rounded-full shadow-sm border border-gray-100 font-bold text-[#ED4CA5] text-lg">
-            開発ストーリー
+        <div class="bg-white rounded-[2.5rem] p-10 md:p-16 relative border border-[#F0EBDD] shadow-warm">
+          <!-- 内側の破線フレーム -->
+          <div class="absolute inset-3 rounded-[2rem] border border-dashed border-[#ED4CA5]/20 pointer-events-none"></div>
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 bg-[#FFFBF0] px-7 py-2.5 rounded-full border border-[#F0EBDD] shadow-warm font-bold text-[#ED4CA5] text-sm tracking-[0.2em]">
+            STORY — 開発ストーリー
           </div>
-          <div class="space-y-8 text-lg md:text-xl text-[#4A4A4A] leading-loose font-medium pt-6">
-            <p>きっかけは、子どものおこづかい帳でした。</p>
-            <p>でも、記録を忘れると残高が合わなくなる。「だいたいでいいよ」と言っても、“合っていない”こと自体がストレスになってしまいました。</p>
-            <p>だから、おかねメモでは「続けること」を大切にしました。</p>
-            <p>完璧に管理するより、まずは記録を続けること。<br />苦手を頑張りで乗り越えるのではなく、続けられる形に変える。</p>
-            <p class="text-2xl font-bold pt-4 text-center md:text-left leading-relaxed">
-              そのために生まれたのが、<br class="md:hidden" />「おかねメモ」です。
+          <div class="space-y-8 text-base md:text-lg text-[#4A4A4A] leading-loose font-medium pt-6 relative">
+            <p>きっかけは、子どものために作った、おこづかい帳アプリでした。</p>
+            <p>紙のおこづかい帳だと、そもそもおこづかい帳を失くす。そして記録しない項目があると残高が合わなくなる。「だいたいでいいよ」と言っても、“合っていない”こと自体がストレスになってしまう。それなら、記録のハードルそのものを下げようと思ったのが始まりです。</p>
+            <p>作っていくうちに気づいたのは、大人も同じところでつまずいている、ということでした。</p>
+            <p>めんどくさい。<br />忘れる。<br />合わなくなると嫌になる。</p>
+            <p class="text-xl md:text-2xl font-bold pt-4 text-center md:text-left leading-relaxed">
+              だから、おかねメモは<br />子どもにも、大人にも使える、<br />“続けるためのお金メモ”として<br class="md:hidden" />作っています。
             </p>
           </div>
           <!-- ブタさんはPC時は絶対配置、スマホ時は文章の下に配置 -->
           <div class="mt-12 flex justify-center md:absolute md:bottom-8 md:right-8 md:mt-0">
-            <img src="/images/wizpiggy2x.webp" alt="魔法使いブタ" class="w-24 h-24 md:w-36 md:h-36 opacity-80 hover:-translate-y-2 transition-transform duration-300" />
+            <img src="/images/wizpiggy2x.webp" alt="魔法使いブタ" class="w-20 h-20 md:w-28 md:h-28 opacity-80 hover:-translate-y-2 transition-transform duration-300" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ⑧ CTA -->
-    <section class="pt-32 pb-24 px-6 relative bg-white">
+    <!-- ⑧ FAQ -->
+    <section class="py-20 md:py-28 px-6 bg-white relative z-10">
       <!-- 背景装飾 -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[0%] left-[10%] w-[500px] h-[500px] bg-[#DBFCE7] rounded-[70%_30%_50%_50%/30%_50%_50%_70%] blur-3xl opacity-40"></div>
-        <div class="absolute top-[15%] right-[5%] w-80 h-80 bg-dots-pink opacity-40 rotate-6 animate-[float_14s_ease-in-out_infinite_reverse]"></div>
-      </div>
-
-      <div class="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-2xl md:text-4xl font-bold text-[#4A4A4A] leading-relaxed">
-            <span class="marker-pink">まずは、<br class="md:hidden" />1つだけ記録してみてください。</span>
-          </h2>
-        </div>
-        <p class="text-xl md:text-2xl text-[#ED4CA5] font-bold">
-          「全部管理する」を<br class="md:hidden" />やめるところから。
-        </p>
-        
-        <div class="flex flex-wrap items-center justify-center gap-6 pt-8">
-          <!-- App Store -->
-          <a href="https://apps.apple.com/jp/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?releaseDate=1779148800" alt="App Storeでダウンロード" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
-          </a>
-          <!-- Google Play -->
-          <a href="https://play.google.com/store/apps/details?id=work.webtailor.moneymemo" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
-            <img src="/images/GetItOnGooglePlay_Badge_Web_color_Japanese.svg" alt="Google Play で手に入れよう" style="width: 224px; height: 82px; vertical-align: middle; object-fit: contain;" />
-          </a>
-        </div>
-        
-        <!-- ブタさん -->
-        <div class="flex justify-center pt-8">
-          <img src="/images/basic2x.webp" alt="ブタのキャラクター" class="w-28 h-28 md:w-32 md:h-32 drop-shadow-md hover:-translate-y-2 transition-transform duration-300" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ⑨ FAQ -->
-    <section class="py-24 px-6 bg-[#FFFBF0] relative z-10">
-      <!-- 背景装飾 -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute bottom-[10%] right-[10%] w-[300px] h-[300px] bg-[#FFE2E2] rounded-[50%_50%_30%_70%/50%_70%_30%_50%] blur-3xl opacity-30"></div>
-        <div class="absolute top-[10%] left-[5%] w-64 h-64 bg-dots-gray opacity-30 rotate-12 animate-[float_10s_ease-in-out_infinite]"></div>
+        <span class="ghost-num absolute top-8 right-4 md:right-10 text-[5rem] md:text-[8rem]">06</span>
       </div>
 
       <div class="max-w-3xl mx-auto space-y-12 relative z-10">
-        <div class="flex justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-center text-[#4A4A4A] relative z-10">
+        <div class="text-center space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">FAQ</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A]">
             <span class="marker-yellow">よくある質問</span>
           </h2>
         </div>
-        
-        <div class="space-y-6">
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
+
+        <div class="space-y-4">
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
               <span class="text-[#ED4CA5]">Q.</span> 完全無料ですか？
             </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              はい、完全無料です。<br />広告もありません。中高生にも安心して使えます。
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              はい、完全無料です。広告もありません。
             </p>
           </div>
 
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
               <span class="text-[#ED4CA5]">Q.</span> 子ども向けですか？
             </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              大人でも使えます。
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              子どもだけでなく、大人にも使えます。元はおこづかい帳として作りましたが、家計簿が続かなかった人や、気になる出費だけを記録したい人にも向いています。
             </p>
           </div>
 
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
               <span class="text-[#ED4CA5]">Q.</span> 家計簿として使えますか？
             </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              「一部だけ管理」が特におすすめです。
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              はい、使えます。ただし、細かく管理する家計簿というより、気になる出費を気軽に残すためのアプリです。
             </p>
           </div>
 
-          <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-50 shadow-sm">
-            <h3 class="font-bold text-xl text-[#4A4A4A] mb-4 flex gap-3">
-              <span class="text-[#ED4CA5]">Q.</span> 自動連携はありますか？
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> 残高管理はできますか？
             </h3>
-            <p class="text-[#757575] font-medium leading-relaxed pl-8">
-              ありません。<br />その代わり、自分の言葉で記録できます。
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              いいえ、残高表示はありません。1円ズレるストレスで記録が止まらないように、あえて「使った記録を残すこと」に絞っています。
             </p>
           </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> カテゴリ分けはできますか？
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              いいえ、カテゴリ分けはありません。入力で迷わず、すぐ記録できることを優先しています。
+            </p>
+          </div>
+
+          <div class="bg-[#FFFBF0] rounded-2xl p-6 md:p-8 border border-[#F0EBDD] border-l-4 border-l-[#ED4CA5]/50 shadow-warm">
+            <h3 class="font-bold text-base md:text-lg text-[#4A4A4A] mb-3 flex gap-3">
+              <span class="text-[#ED4CA5]">Q.</span> 自動連携はありますか？
+            </h3>
+            <p class="text-[#857E74] font-medium leading-relaxed pl-8 text-sm md:text-base">
+              いいえ、銀行やクレジットカードとの自動連携はありません。その代わり、自分で気づいた出費を、自分の言葉で気軽に記録できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ CTA -->
+    <section class="pt-24 pb-28 md:pt-28 md:pb-32 px-6 relative bg-[#FFFBF0]">
+      <!-- 背景装飾 -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute inset-0 bg-grid-warm opacity-50"></div>
+        <div class="absolute bottom-[-20%] left-[10%] w-[450px] h-[450px] bg-[#FFF2D9] rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute top-[10%] right-[-6%] w-[300px] h-[300px] border border-[#ED4CA5]/12 rounded-full"></div>
+        <div class="absolute top-[16%] right-[-2%] w-[200px] h-[200px] border border-[#E8B94F]/18 rounded-full"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto text-center space-y-10 relative z-10">
+        <div class="space-y-5">
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <p class="text-xs font-bold tracking-[0.3em] text-[#ED4CA5]">DOWNLOAD</p>
+            <span class="w-1.5 h-1.5 rotate-45 bg-[#ED4CA5]/70"></span>
+            <span class="w-10 h-px bg-[#ED4CA5]/40"></span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#4A4A4A] leading-relaxed">
+            <span class="marker-pink">まずは、<br class="md:hidden" />1つだけ記録してみてください。</span>
+          </h2>
+        </div>
+        <p class="text-lg md:text-xl text-[#ED4CA5] font-bold">
+          「全部管理する」を<br class="md:hidden" />やめるところから。
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-5 pt-6">
+          <!-- App Store -->
+          <a href="https://apps.apple.com/jp/app/%E3%81%8A%E3%81%8B%E3%81%AD%E3%83%A1%E3%83%A2/id6767521020" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/ja-jp?releaseDate=1779148800" alt="App Storeでダウンロード" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
+          </a>
+          <!-- Google Play -->
+          <a href="https://play.google.com/store/apps/details?id=work.webtailor.moneymemo" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 active:scale-98 transition-all duration-200 inline-block" style="display: inline-block;">
+            <img src="/images/GetItOnGooglePlay_Badge_Web_color_Japanese.svg" alt="Google Play で手に入れよう" style="width: 200px; height: 74px; vertical-align: middle; object-fit: contain;" />
+          </a>
+        </div>
+
+        <!-- ブタさん -->
+        <div class="flex justify-center pt-6">
+          <img src="/images/basic2x.webp" alt="ブタのキャラクター" class="w-24 h-24 md:w-28 md:h-28 drop-shadow-sm hover:-translate-y-2 transition-transform duration-300" />
         </div>
       </div>
     </section>
@@ -469,36 +567,73 @@ const OTHER_COLOR = '#FFF2D9';
     font-family: 'Zen Maru Gothic', sans-serif;
   }
 
-  .bg-dots-gray {
-    background-image: radial-gradient(#e2e8f0 3px, transparent 3px);
-    background-size: 32px 32px;
+  /* 背景＋左上にズラした枠線の見出しデザイン */
+  .marker-pink,
+  .marker-green,
+  .marker-yellow {
+    position: relative;
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    border-radius: 4px;
   }
-  .bg-dots-pink {
-    background-image: radial-gradient(#FBCFE8 3px, transparent 3px);
-    background-size: 32px 32px;
+  .marker-pink::before,
+  .marker-green::before,
+  .marker-yellow::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: 4px;
+    pointer-events: none;
+    margin: unset;
   }
-  .bg-dots-green {
-    background-image: radial-gradient(#bbf7d0 3px, transparent 3px);
-    background-size: 32px 32px;
-  }
-
-  /* 複数行対応の蛍光ペンマーカー */
   .marker-pink {
-    background: linear-gradient(transparent 60%, rgba(255, 226, 226, 0.9) 60%);
-    display: inline;
+    background: rgba(255, 231, 243, 0.9);
+  }
+  .marker-pink::before {
+    border-color: rgba(237, 76, 165, 0.5);
   }
   .marker-green {
-    background: linear-gradient(transparent 60%, rgba(219, 252, 231, 0.9) 60%);
-    display: inline;
+    background: rgba(226, 245, 234, 0.9);
+  }
+  .marker-green::before {
+    border-color: rgba(76, 175, 125, 0.5);
   }
   .marker-yellow {
-    background: linear-gradient(transparent 60%, rgba(255, 242, 217, 0.9) 60%);
-    display: inline;
+    background: rgba(255, 241, 214, 0.9);
+  }
+  .marker-yellow::before {
+    border-color: rgba(232, 185, 79, 0.6);
+  }
+
+  /* ごく薄いグリッドパターン */
+  .bg-grid-warm {
+    background-image:
+      linear-gradient(rgba(74, 74, 74, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 74, 74, 0.045) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* セクション番号のゴースト数字 */
+  .ghost-num {
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(237, 76, 165, 0.07);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* 暖色系のソフトシャドウ */
+  .shadow-warm {
+    box-shadow: 0 10px 30px -14px rgba(120, 90, 60, 0.25);
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
   }
 
   .animate-float {
